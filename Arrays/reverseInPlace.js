@@ -7,3 +7,4 @@ function reverseInPlace(arr) {
   }
   console.log(arr.join(" "));
 }
+reverseInPlace([`abc`, `cdc`, `vfv`, `bgb`, `nhn`]);
