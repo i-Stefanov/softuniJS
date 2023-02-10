@@ -8,4 +8,4 @@ function matrixNxN(n) {
   }
   console.table(matrix);
 }
-matrixNxN(7);
+matrixNxN(3);
