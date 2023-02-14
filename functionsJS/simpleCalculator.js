@@ -3,7 +3,7 @@ function simplecalcilator(a, b, operator) {
     multiply: a * b,
     divide: a / b,
     add: a + b,
-    substract: a - b,
+    subtract: a - b,
   };
   let result = operations[operator];
   return result;

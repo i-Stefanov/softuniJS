@@ -13,9 +13,12 @@ function signCheck(numOne, numTwo, numThree) {
     }
     if (sign === `Positive`) {
       sign = `Negative`;
+      return sign;
     } else {
       sign = `Positive`;
+      return sign;
     }
-    return sign;
   }
+  console.log(sign);
 }
+signCheck(5, -4, 3);
