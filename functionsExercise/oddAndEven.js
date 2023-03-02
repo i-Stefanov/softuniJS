@@ -10,5 +10,5 @@ function oddAndEvenSum(num) {
       oddSum += element;
     }
   }
-  return [oddSum, evenSum];
+  return `Odd sum = ${oddSum}, Even sum = ${evenSum}`;
 }

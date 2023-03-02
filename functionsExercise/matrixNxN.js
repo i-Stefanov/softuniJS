@@ -5,7 +5,7 @@ function matrixNxN(n) {
     for (let j = 0; j < n; j++) {
       matrix[i][j] = n;
     }
+    console.log(matrix[i].join(` `));
   }
-  console.table(matrix);
 }
 matrixNxN(3);

@@ -4,7 +4,6 @@ function passworvalidator(password) {
   let isSymbol = true;
   if (passwordLength < 6 || passwordLength > 10) {
     console.log(`Password must be between 6 and 10 characters`);
-    return;
   }
   for (let i = 0; i < passwordLength; i++) {
     let charCode = password.charCodeAt(i);
@@ -21,15 +20,21 @@ function passworvalidator(password) {
       break;
     }
   }
+  if (isSymbol) {
+    console.log(`Password must consist only of letters and digits`);
+  }
   if (digitCounter < 2) {
     console.log(`Password must have at least 2 digits`);
   }
-  if (isSymbol) {
-    console.log(`Password must consist only of letters and digits`);
-  } else {
+  if (
+    digitCounter >= 2 &&
+    !isSymbol &&
+    !(passwordLength < 6 || passwordLength > 10)
+  ) {
     console.log(`Password is valid`);
   }
   return;
 }
 
+// passworvalidator("logIn");
 passworvalidator("Pa$s$s");

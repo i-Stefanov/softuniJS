@@ -9,7 +9,7 @@ function addandSubtarct(numOne, numTwo, numThree) {
     let result = sum - thirdNumber;
     return result;
   }
-  console.log(subResult);
+
   return subResult;
 }
 addandSubtarct(1, 22, 3);
