@@ -20,6 +20,7 @@ function schoolRegister(input) {
 
   let studentsInSameGrade = [];
   let count = 0;
+
   for (let i = 0; i < sortedStudents.length; i += count) {
     studentsInSameGrade = [];
     for (let j = i; j < sortedStudents.length; j++) {
@@ -30,8 +31,20 @@ function schoolRegister(input) {
         break;
       }
     }
+
+    console.log(`${studentsInSameGrade[0].grade} Grade`);
+    console.log(
+      `List of students: ${studentsInSameGrade.map((s) => s.name).join(`, `)}`
+    );
+    console.log(
+      `Average annual score from last year: ${average(
+        studentsInSameGrade.map((s) => s.score)
+      ).toFixed(2)}`
+    );
     i = 0;
-    console.log(studentsInSameGrade);
+  }
+  function average(arr) {
+    return arr.reduce((a, b) => a + b, 0) / arr.length;
   }
 }
 
