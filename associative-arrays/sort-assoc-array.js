@@ -6,10 +6,10 @@ let phoneBook = {
   Ivory: `0834212984`,
 };
 // convert the associative array to an array
-let phoneBookentries = Object.entries(phoneBook);
+let phoneBookEntries = Object.entries(phoneBook);
 
 //sort the array
-let sortedentEnries = phoneBookentries.sort((keyValuePairA, keyValuePairB) =>
+let sortedentEnries = phoneBookEntries.sort((keyValuePairA, keyValuePairB) =>
   keyValuePairA[0].localeCompare(keyValuePairB[0])
 );
 //convert the array to an object
