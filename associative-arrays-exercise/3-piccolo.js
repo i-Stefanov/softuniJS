@@ -13,7 +13,6 @@ function piccolo(listOfCars) {
   if (parking.length === 0) {
     console.log(`Parking Lot is Empty`);
   }
-
   console.log(parking.join(`\n`));
 }
 piccolo([
