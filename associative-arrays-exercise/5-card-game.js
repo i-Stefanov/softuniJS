@@ -1,6 +1,6 @@
 function cardGame(data) {
   let players = new Map();
-  let calculatedResult = {};
+
   data.forEach((player) => {
     let [playerName, deck] = player.split(`: `);
     let cards = deck.split(`, `);
