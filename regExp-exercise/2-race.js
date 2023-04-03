@@ -5,6 +5,9 @@ function race(input) {
   let lettersPattern = /[A-Za-z]/gm;
   let digitsPattern = /\d/gm;
   for (let line of input) {
+    if (line === "end of race") {
+      break;
+    }
     let racersObj = {
       racerName: ``,
       distance: 0,
