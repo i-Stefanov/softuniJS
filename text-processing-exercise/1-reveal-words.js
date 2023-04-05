@@ -1,6 +1,6 @@
-function revealWords(wordTocheckFor, sentence) {
+function revealWords(wordsTocheckFor, sentence) {
   let pattern = /\*+/gm;
-  let words = wordTocheckFor.split(`, `);
+  let words = wordsTocheckFor.split(`, `);
 
   let matches = sentence.match(pattern);
 
