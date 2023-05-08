@@ -1,5 +1,5 @@
 const subSum = require(`./1-sub-sum-test-added`);
-const assert = require(`assert`).strict;
+const { assert } = require(`chai`);
 describe(`Sub sum calculator`, () => {
   it(`Should calculate subsum when endIndex is bigger than startIndex and smaller than length and return it`, () => {
     // Arrange
@@ -24,12 +24,11 @@ describe(`Sub sum calculator`, () => {
     assert.equal(actualSum, expetedSum);
   });
   it(`Shoul return NaN when the first passed argument is not an Array`, () => {
-    // Arrange
-
-    // Act
-    let actualSum = subSum(10, 0, 2);
     // Assert
-    assert.equal(actualSum, NaN);
+    assert.equal(Number.isNaN(subSum(10, 0, 2)), true);
+    assert.equal(Number.isNaN(subSum(`b`, 0, 2)), true);
+    assert.equal(Number.isNaN(subSum(NaN, 0, 2)), true);
+    assert.equal(Number.isNaN(subSum(true, 0, 2)), true);
   });
 });
 
