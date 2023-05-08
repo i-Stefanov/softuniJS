@@ -1,6 +1,6 @@
 .vscode
 test.js
 basic-web-project
-node-modules/
+node_modules
 *.md
-!README.md
+!README.modules         
