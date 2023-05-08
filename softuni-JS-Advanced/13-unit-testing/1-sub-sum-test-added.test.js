@@ -1,5 +1,6 @@
 const subSum = require(`./1-sub-sum-test-added`);
-const { assert } = require(`chai`);
+// const { assert } = require(`chai`);
+const { expect } = require(`chai`);
 describe(`Sub sum calculator`, () => {
   it(`Should calculate subsum when endIndex is bigger than startIndex and smaller than length and return it`, () => {
     // Arrange
@@ -10,7 +11,7 @@ describe(`Sub sum calculator`, () => {
     // Act
     let actualSum = subSum(numbers, startIndex, endIndex);
     // Assert
-    assert.equal(actualSum, expetedSum);
+    expect(actualSum).to.equal(expetedSum);
   });
   it(`startInex should be bigger than 0`, () => {
     // Arrange
@@ -21,14 +22,18 @@ describe(`Sub sum calculator`, () => {
     // Act
     let actualSum = subSum(numbers, startIndex, endIndex);
     // Assert
-    assert.equal(actualSum, expetedSum);
+    expect(actualSum).to.equal(expetedSum);
   });
   it(`Shoul return NaN when the first passed argument is not an Array`, () => {
     // Assert
-    assert.equal(Number.isNaN(subSum(10, 0, 2)), true);
-    assert.equal(Number.isNaN(subSum(`b`, 0, 2)), true);
-    assert.equal(Number.isNaN(subSum(NaN, 0, 2)), true);
-    assert.equal(Number.isNaN(subSum(true, 0, 2)), true);
+    expect(subSum(10, 0, 2)).to.be.NaN;
+    expect(subSum(`b`, 0, 2)).to.be.NaN;
+    expect(subSum(NaN, 0, 2)).to.be.NaN;
+    expect(subSum(true, 0, 2)).to.be.NaN;
+    // assert.equal(Number.isNaN(subSum(10, 0, 2)), true);
+    // assert.equal(Number.isNaN(subSum(`b`, 0, 2)), true);
+    // assert.equal(Number.isNaN(subSum(NaN, 0, 2)), true);
+    // assert.equal(Number.isNaN(subSum(true, 0, 2)), true);
   });
 });
 
