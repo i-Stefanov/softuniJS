@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+       "test": "mocha ./*.test.js"
   },
-  "author": "",
+  "author": ""    ,
   "license": "ISC",
   "dependencies": {
     "chai": "^4.3.7",

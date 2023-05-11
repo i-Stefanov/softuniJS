@@ -2,9 +2,7 @@ const createCalculator = require(`./7-create-calculator`);
 const { expect } = require(`chai`);
 describe(`check calculator functionality`, () => {
   let calc;
-  beforeEach(() => {
-    calc = createCalculator();
-  });
+  beforeEach(() => (calc = createCalculator()));
 
   it(`returns zero initial value`, () => {
     expect(calc.get()).to.equal(0);
