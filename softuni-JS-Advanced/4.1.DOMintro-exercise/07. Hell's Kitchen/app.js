@@ -53,10 +53,9 @@ function solve() {
 
       bestRestaurantElement.textContent = `Name: ${bestRestaurant} Average Salary: ${averageSalary} Best Salary: ${bestSalary}`;
       if (workersElement.textContent === ``) {
-        for (let [workerName, salary] of Object.entries(
+        for (const [workerName, salary] of Object.entries(
           restaurantsObj[bestRestaurant]
         )) {
-          salary = Number(salary);
           workersElement.textContent += `Name: ${workerName} With Salary: ${salary} `;
         }
       }
