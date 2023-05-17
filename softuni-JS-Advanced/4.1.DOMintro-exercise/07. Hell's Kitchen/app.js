@@ -10,7 +10,7 @@ function solve() {
       const workersElement = document.querySelector(`#workers p`);
       input = ``;
       let averageSalary = 0;
-      let currentAverageSallary = 0;
+      let workersInfoToPrint = ``;
       let restaurantsObj = {};
       let bestRestaurant = ``;
       let bestSalary = 0;
@@ -22,20 +22,20 @@ function solve() {
 
           if (!restaurantsObj.hasOwnProperty(restaurantName)) {
             restaurantsObj[restaurantName] = {};
-            restaurantsObj[restaurantName][workerName] = salary;
+            restaurantsObj[restaurantName][workerName] = Number(salary);
           } else {
-            restaurantsObj[restaurantName][workerName] = salary;
+            restaurantsObj[restaurantName][workerName] = Number(salary);
           }
         }
       }
       for (const [restaurant, workersObj] of Object.entries(restaurantsObj)) {
-        currentAverageSallary =
-          Object.values(workersObj)
-            .map((x) => Number(x))
-            .reduce((sum, value) => sum + value, 0) /
-          Object.values(workersObj).length;
+        let currentAverageSallary =
+          Object.values(workersObj).reduce(
+            (sum, value) => sum + Number(value),
+            0
+          ) / Object.values(workersObj).length;
         if (currentAverageSallary > averageSalary) {
-          averageSalary = Number(currentAverageSallary).toFixed(2);
+          averageSalary = Number(currentAverageSallary);
           bestRestaurant = restaurant;
           bestSalary = Math.max(
             ...Object.values(workersObj).map((x) => Number(x))
@@ -50,15 +50,15 @@ function solve() {
           }
         )
       );
+      console.log(sortedWorkers);
+      bestRestaurantElement.textContent = `Name: ${bestRestaurant} Average Salary: ${averageSalary.toFixed(
+        2
+      )} Best Salary: ${bestSalary}`;
 
-      bestRestaurantElement.textContent = `Name: ${bestRestaurant} Average Salary: ${averageSalary} Best Salary: ${bestSalary}`;
-      if (workersElement.textContent === ``) {
-        for (const [workerName, salary] of Object.entries(
-          restaurantsObj[bestRestaurant]
-        )) {
-          workersElement.textContent += `Name: ${workerName} With Salary: ${salary} `;
-        }
+      for (const [workerName, salary] of Object.entries(sortedWorkers)) {
+        workersInfoToPrint += `Name: ${workerName} With Salary: ${salary} `;
       }
+      workersElement.textContent = workersInfoToPrint;
     }
   }
 }
