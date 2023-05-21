@@ -1,23 +1,18 @@
 function generateReport() {
-  const employeesDataChecBox = document.querySelectorAll(`th>input`);
-  const employees = Array.from(document.querySelectorAll(`tr td:nth-child(1)`));
-  const department = Array.from(
-    document.querySelectorAll(`tr td:nth-child(2)`)
-  );
-  const status = Array.from(document.querySelectorAll(`tr td:nth-child(3)`));
-  const dateHired = Array.from(document.querySelectorAll(`tr td:nth-child(4)`));
-  const benefits = Array.from(document.querySelectorAll(`tr td:nth-child(5)`));
-  const compensation = Array.from(
-    document.querySelectorAll(`tr td:nth-child(6)`)
-  );
-  employeesDataChecBox.forEach((checkBox) => {
-    if (checkBox.checked) {
-      console.log(checkBox["name"]);
-    }
+  const checkBoxElements = Array.from(document.querySelectorAll(`thead input`));
+  const tableRowElements = Array.from(document.querySelectorAll(`tbody tr`));
+
+  const output = document.querySelector(`#output`);
+  let result = [];
+
+  tableRowElements.forEach((row) => {
+    let obj = {};
+    Array.from(row.children).forEach((cell, i) => {
+      if (checkBoxElements[i].checked) {
+        obj[checkBoxElements[i].name] = cell.textContent;
+      }
+    });
+    result.push(obj);
   });
-  const reting = Array.from(document.querySelectorAll(`tr td:nth-child(7)`));
-  let employeesArr = Array.from(employees);
-  //   arr.forEach((e) => {
-  //     console.log(e.textContent);
-  //   });
+  output.textContent = JSON.stringify(result);
 }
