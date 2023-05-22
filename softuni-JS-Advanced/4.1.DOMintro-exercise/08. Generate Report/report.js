@@ -11,6 +11,7 @@ function generateReport() {
       if (checkBoxElements[i].checked) {
         obj[checkBoxElements[i].name] = cell.textContent;
       }
+      debugger;
     });
     result.push(obj);
   });
