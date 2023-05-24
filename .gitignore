@@ -3,4 +3,6 @@ test.js
 basic-web-project
 node_modules
 *.md
+*.txt
+recources-for-lessons
 !README.modules         
