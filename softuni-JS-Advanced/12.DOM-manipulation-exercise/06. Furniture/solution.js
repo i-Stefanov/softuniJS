@@ -1,23 +1,62 @@
 function solve() {
-  const [items, cart] = Array.from(document.querySelectorAll(`textarea`));
+  const [items, boughtFurniture] = Array.from(
+    document.querySelectorAll(`textarea`)
+  );
   const [generateBtn, buyBtn] = Array.from(document.querySelectorAll(`button`));
-  const tbody = document.querySelector(`tbody`);
-  let tr = document.createElement(`tr`);
-  let tdImg = document.createElement(`td`);
-  let tdName = document.createElement(`td`);
-  let tdPrice = document.createElement(`td`);
-  let tdDecFactor = document.createElement(`td`);
-  let tdCheckbox = document.createElement(`td`);
-  let pName = document.createElement(`p`);
-  let pPrice = document.createElement(`p`);
-  let pDecFactor = document.createElement(`p`);
-  let img = document.createElement(`img`);
-  let checkbox = document.createElement(`input`);
-  checkbox.type = `checkbox`;
+
   generateBtn.addEventListener(`click`, generate);
+  buyBtn.addEventListener(`click`, addToBought);
+
+  function addToBought() {
+    const checkboxes = Array.from(
+      document.querySelectorAll(`input[type="checkbox"]`)
+    );
+    let totalPrice = 0;
+    let decFacs = [];
+    let decFacAvg = 0;
+    let itemsBought = [];
+    checkboxes.forEach((check) => {
+      if (check.disabled === false) {
+        if (check.checked) {
+          let itemInfo = check.parentElement.parentElement;
+          let itemName = itemInfo.querySelector(`tr :nth-child(2)`).textContent;
+          let price = Number(
+            itemInfo.querySelector(`tr :nth-child(3)`).textContent
+          );
+          let decFac = Number(
+            itemInfo.querySelector(`tr :nth-child(4)`).textContent
+          );
+          itemsBought.push(itemName);
+          totalPrice += price;
+          decFacs.push(decFac);
+          decFacAvg =
+            decFacs.reduce((acc, decFacVal) => {
+              return acc + decFacVal;
+            }, 0) / decFacs.length;
+        }
+      }
+    });
+    boughtFurniture.value = `Bought furniture: ${itemsBought.join(`, `)}.
+    Total price: ${totalPrice.toFixed(2)}
+    Average decoration factor: ${decFacAvg.toFixed(2)}`;
+  }
   function generate() {
+    const tbody = document.querySelector(`tbody`);
+    let tr = document.createElement(`tr`);
+    let tdImg = document.createElement(`td`);
+    let tdName = document.createElement(`td`);
+    let tdPrice = document.createElement(`td`);
+    let tdDecFactor = document.createElement(`td`);
+    let tdCheckbox = document.createElement(`td`);
+    let pName = document.createElement(`p`);
+    let pPrice = document.createElement(`p`);
+    let pDecFactor = document.createElement(`p`);
+    let img = document.createElement(`img`);
+    let checkbox = document.createElement(`input`);
+    checkbox.type = `checkbox`;
     const products = JSON.parse(items.value);
     products.forEach((product) => {
+      console.log(product);
       img.src = product.img;
       pName.textContent = product.name;
       pPrice.textContent = product.price;
@@ -36,11 +75,3 @@ function solve() {
     });
   }
 }
-// [
-//   {
-//     name: "Sofa",
-//     img: "https://res.cloudinary.com/maisonsdumonde/image/upload/q_auto,f_auto/w_200/img/grey-3-seater-sofa-bed-200-13-0-175521_9.jpg",
-//     price: 150,
-//     decFactor: 1.2,
-//   },
-// ];
