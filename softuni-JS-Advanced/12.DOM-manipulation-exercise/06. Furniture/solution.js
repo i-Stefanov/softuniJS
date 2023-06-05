@@ -36,27 +36,30 @@ function solve() {
         }
       }
     });
-    boughtFurniture.value = `Bought furniture: ${itemsBought.join(`, `)}.
-    Total price: ${totalPrice.toFixed(2)}
-    Average decoration factor: ${decFacAvg.toFixed(2)}`;
+    boughtFurniture.value = `Bought furniture: ${itemsBought.join(
+      `, `
+    )}\nTotal price: ${totalPrice.toFixed(
+      2
+    )}\nAverage decoration factor: ${decFacAvg}`;
   }
   function generate() {
     const tbody = document.querySelector(`tbody`);
-    let tr = document.createElement(`tr`);
-    let tdImg = document.createElement(`td`);
-    let tdName = document.createElement(`td`);
-    let tdPrice = document.createElement(`td`);
-    let tdDecFactor = document.createElement(`td`);
-    let tdCheckbox = document.createElement(`td`);
-    let pName = document.createElement(`p`);
-    let pPrice = document.createElement(`p`);
-    let pDecFactor = document.createElement(`p`);
-    let img = document.createElement(`img`);
-    let checkbox = document.createElement(`input`);
-    checkbox.type = `checkbox`;
+
     const products = JSON.parse(items.value);
-    products.forEach((product) => {
-      console.log(product);
+    for (const product of products) {
+      let tr = document.createElement(`tr`);
+      let tdImg = document.createElement(`td`);
+      let tdName = document.createElement(`td`);
+      let tdPrice = document.createElement(`td`);
+      let tdDecFactor = document.createElement(`td`);
+      let tdCheckbox = document.createElement(`td`);
+      let pName = document.createElement(`p`);
+      let pPrice = document.createElement(`p`);
+      let pDecFactor = document.createElement(`p`);
+      let img = document.createElement(`img`);
+      let checkbox = document.createElement(`input`);
+      checkbox.type = `checkbox`;
+      // console.log(product);
       img.src = product.img;
       pName.textContent = product.name;
       pPrice.textContent = product.price;
@@ -72,6 +75,6 @@ function solve() {
       tr.appendChild(tdDecFactor);
       tr.appendChild(tdCheckbox);
       tbody.appendChild(tr);
-    });
+    }
   }
 }
