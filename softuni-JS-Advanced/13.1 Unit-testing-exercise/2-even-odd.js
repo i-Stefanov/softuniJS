@@ -8,4 +8,5 @@ function isOddOrEven(string) {
 
   return "odd";
 }
+isOddOrEven(`dsasda`);
 module.exports = isOddOrEven;
