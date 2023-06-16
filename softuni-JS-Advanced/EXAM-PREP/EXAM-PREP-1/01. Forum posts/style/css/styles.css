@@ -54,7 +54,7 @@ p {
 
 textarea {
   border-color: #dae4eb;
-  color: #dae4eb;
+  color: #2e3641;
 }
 
 input[type="text"] {
@@ -114,6 +114,7 @@ input[type="text"] {
 
 #main-container {
   width: 1350px;
+  display: flex;
   height: 1000px;
   margin: 0 auto;
   padding: 80px;
@@ -161,7 +162,7 @@ input[type="text"] {
 }
 
 #middle-container {
-  width: 630px;
+  width: 430px;
   float: right;
   margin: 0px 60px;
 }
