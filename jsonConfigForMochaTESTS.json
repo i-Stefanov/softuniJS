@@ -1,0 +1,26 @@
+{
+  // Използвайте подсказките, за да видите възможните атрибути.
+  // Посочете, за да видите описания на съществуващите атрибути.
+  // За повече информация посетете: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha Tests",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": ["-u", "bdd", "--timeout", "999999", "--colors", "${file}"],
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}
