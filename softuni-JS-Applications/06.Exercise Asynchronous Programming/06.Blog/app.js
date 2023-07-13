@@ -5,7 +5,6 @@ function attachEvents() {
   const postBody = document.querySelector(`#post-body`);
   const postComments = document.querySelector(`#post-comments`);
   let selectPosts = document.querySelector(`#posts`);
-  selectPosts.innerHTML = "";
   btnLoadPosts.addEventListener(`click`, loadPosts);
   btnViewPost.addEventListener(`click`, viewPost);
   let posts;
@@ -18,9 +17,10 @@ function attachEvents() {
       if (!posts) {
         throw new Error();
       }
+      selectPosts.replaceChildren();
       Object.entries(posts).forEach(([postId, postBody]) => {
         const option = document.createElement(`option`);
-        option.textContent = postBody.title.toUpperCase();
+        option.textContent = postBody.title;
         option.value = postId;
         selectPosts.appendChild(option);
       });
@@ -47,7 +47,7 @@ function attachEvents() {
       console.log(selectedOption.textContent);
       postBody.textContent = posts[selectPosts.value].body;
       titleEl.textContent = selectedOption.textContent;
-      postComments.innerHTML = "";
+      postComments.replaceChildren();
       currentComments.forEach((comment) => {
         const li = document.createElement(`li`);
         li.textContent = comment.text;
