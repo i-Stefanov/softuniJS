@@ -1,13 +1,50 @@
-// load all books
-
-// create book
-// edit book
-// delete book
+// load all books DONE
+// create book DONE
+// edit book DONE
+// delete book DONE
 // handle create form
 // handle edit form
 // load book for editing
 // handle delete button
 // initialization
+const tbody = document.querySelector(`tbody`);
+const loadBooksBtn = document.querySelector(`#loadBooks`);
+const createForm = document.querySelector(`#createForm`);
+const editForm = document.querySelector(`#editForm`);
+
+loadBooks();
+loadBooksBtn.addEventListener(`click`, loadBooks);
+createForm.addEventListener(`submit`, onCreate);
+editForm.addEventListener(`submit`, onSave);
+tbody.addEventListener(`click`, onTableClick);
+async function onSave(e) {
+  e.preventDefault();
+  console.log(e.target);
+}
+async function onCreate(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const author = formData.get("author");
+  const title = formData.get("title");
+  const result = await createBook({ author, title });
+  tbody.appendChild(createRow(result._id, result));
+  // Clear form fields
+  e.target.reset();
+}
+async function onTableClick(e) {
+  const clickedBookId = e.target.dataset.id;
+  if ((e.target.className = "edit")) {
+    createForm.style.display = "none";
+    editForm.style.display = "block";
+    const book = await getBook(clickedBookId);
+    let authorField = editForm.querySelector(`[name = 'author']`);
+    let titleField = editForm.querySelector(`[name = 'title']`);
+    authorField.value = book.author;
+    titleField.value = book.title;
+  } else if ((e.target.className = "delete")) {
+    console.log(e.target.dataset.id);
+  }
+}
 
 async function request(url, options) {
   const response = await fetch(url, options);
@@ -26,10 +63,31 @@ async function request(url, options) {
   const data = await response.json();
   return data;
 }
+function createRow(id, book) {
+  const row = document.createElement(`tr`);
+  row.innerHTML = ` <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>
+                        <button class = "edit" data-id = ${id}>Edit</button>
+                        <button class = "delete" data-id = ${id} >Delete</button>
+                    </td>`;
+  return row;
+}
 async function loadBooks() {
   const url = `http://localhost:3030/jsonstore/collections/books`;
   const books = await request(url);
+  const result = Object.entries(books).map(([id, book]) => createRow(id, book));
+  createForm.style.display = "block";
+
+  editForm.style.display = "none";
+  tbody.replaceChildren(...result);
   return books;
+}
+async function getBook(id) {
+  const book = await request(
+    `http://localhost:3030/jsonstore/collections/books/${id}`
+  );
+  return book;
 }
 async function createBook(book) {
   const result = await request(
