@@ -10,8 +10,11 @@ export async function showCatalogPage(ctx) {
 
 async function loadIdeas() {
   const ideas = await getAllIdeas();
+  // create document fragment to attach all ideas to
   const fragment = document.createDocumentFragment();
+  //create new card for each idea and attach all ideas to the fragment
   ideas.map(createIdeacard).forEach((i) => fragment.appendChild(i));
+  // replace all elements on the page with the idea cards
   section.replaceChildren(fragment);
 }
 
