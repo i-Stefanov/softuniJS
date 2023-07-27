@@ -51,3 +51,6 @@ textarea {
   filter: brightness(90%);
   color: white;
 }
+#views {
+  display: none;
+}
