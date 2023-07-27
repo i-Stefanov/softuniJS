@@ -29,6 +29,8 @@ const ctx = {
   goTo,
   showSection,
 };
+// Start app in home view
+goTo("home");
 function onNavigate(event) {
   const name = links[event.target.id];
   if (name) {
