@@ -18,9 +18,9 @@ async function request(url, options) {
     } else {
       return response.json();
     }
-  } catch (err) {
-    alert(err.message);
-    throw err;
+  } catch (error) {
+    alert(error.message);
+    throw error;
   }
 }
 
