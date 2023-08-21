@@ -19,7 +19,12 @@ editForm.addEventListener(`submit`, onSave);
 tbody.addEventListener(`click`, onTableClick);
 async function onSave(e) {
   e.preventDefault();
-  console.log(e.target);
+  const idInput = document.querySelector("#idField");
+  const bookId = idInput.value;
+  console.log(bookId);
+  const bookToEdit = await getBook(bookId);
+  console.log(bookToEdit);
+  updateBook(bookId, bookToEdit);
 }
 async function onCreate(e) {
   e.preventDefault();
@@ -33,6 +38,11 @@ async function onCreate(e) {
 }
 async function onTableClick(e) {
   const clickedBookId = e.target.dataset.id;
+  const idField = document.createElement("input");
+  idField.value = clickedBookId;
+  idField.id = "idField";
+  idField.style.display = "none";
+  editForm.appendChild(idField);
   if ((e.target.className = "edit")) {
     createForm.style.display = "none";
     editForm.style.display = "block";
@@ -42,7 +52,7 @@ async function onTableClick(e) {
     authorField.value = book.author;
     titleField.value = book.title;
   } else if ((e.target.className = "delete")) {
-    console.log(e.target.dataset.id);
+    // console.log(e.target.dataset.id);
   }
 }
 
@@ -67,9 +77,9 @@ function createRow(id, book) {
   const row = document.createElement(`tr`);
   row.innerHTML = ` <td>${book.title}</td>
                     <td>${book.author}</td>
-                    <td>
-                        <button class = "edit" data-id = ${id}>Edit</button>
-                        <button class = "delete" data-id = ${id} >Delete</button>
+                    <td data-id = ${id}>
+                        <button class = "edit" >Edit</button>
+                        <button class = "delete"  >Delete</button>
                     </td>`;
   return row;
 }

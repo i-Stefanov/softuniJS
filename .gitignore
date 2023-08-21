@@ -1,8 +1,11 @@
 .vscode
-test.js
+test1.js
+*demo/
 basic-web-project
 node_modules
 *.md
 *.txt
 recources-for-lessons
+interviewPrep
 !README.modules         
+*.zip
