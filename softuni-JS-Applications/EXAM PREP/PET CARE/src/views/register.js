@@ -58,6 +58,7 @@ export async function showRegister(ctx) {
       return alert("Passwords don't match!");
     }
     await register(email, password);
+    ctx.updateNav();
     ctx.page.redirect("/");
   }
 }

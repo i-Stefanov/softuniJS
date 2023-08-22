@@ -26,5 +26,6 @@ const petCardTemplate = (pet) => html`<div class="animals-board">
 </div>`;
 export async function showCatalog(ctx) {
   const pets = await getAll();
+  // console.log(pets);
   ctx.render(catalogTemplate(pets));
 }
