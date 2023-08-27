@@ -7,6 +7,7 @@ const DEBUG = false;
 const slowMo = 500;
 
 const mockData = require("./mock-data.json");
+const { describe } = require("mocha");
 
 const endpoints = {
   register: "/users/register",
