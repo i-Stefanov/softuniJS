@@ -6,6 +6,10 @@ import { showRegister } from "./views/register.js";
 import { showLogin } from "./views/login.js";
 import { showEdit } from "./views/edit.js";
 import { showMyFurniture } from "./views/my-furniture.js";
+
+import * as api from "./api/data.js";
+window.api = api;
+
 const root = document.querySelector("div.container");
 page(decorateContext);
 page("/", showHome);
