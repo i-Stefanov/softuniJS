@@ -6,8 +6,10 @@ import { showLogin } from "./views/login.js";
 import { showEdit } from "./views/edit.js";
 import { showMyFurniture } from "./views/my-furniture.js";
 import { showCatalog } from "./views/catalog.js";
+import { logout } from "./api/api.js";
 
 const root = document.querySelector("div.container");
+document.querySelector("#logoutBtn").addEventListener("click", onLogout);
 page(decorateContext);
 page("/", showCatalog);
 page("/details/:id", showDetails);
@@ -20,4 +22,8 @@ page.start();
 function decorateContext(ctx, next) {
   ctx.render = (content) => render(content, root);
   next();
+}
+async function onLogout() {
+  await logout();
+  page.redirect("/");
 }
