@@ -32,10 +32,12 @@ export function showLogin(ctx) {
   ctx.render(loginTemplate(onSubmit));
   async function onSubmit(event) {
     event.preventDefault();
+
     const formData = new FormData(event.target);
     const email = formData.get("email");
     const password = formData.get("password");
     await login(email, password);
+    ctx.updateNavigation();
     ctx.page.redirect("/");
   }
 }
