@@ -1,11 +1,12 @@
+import { editItem, getById } from "../api/data.js";
 import { html } from "../lib.js";
-const editTemplate = () => html` <div class="row space-top">
+const editTemplate = (item, onEdit) => html` <div class="row space-top">
     <div class="col-md-12">
       <h1>Edit Furniture</h1>
       <p>Please fill all fields.</p>
     </div>
   </div>
-  <form>
+  <form @submit=${onEdit}>
     <div class="row space-top">
       <div class="col-md-4">
         <div class="form-group">
@@ -15,7 +16,7 @@ const editTemplate = () => html` <div class="row space-top">
             id="new-make"
             type="text"
             name="make"
-            value="Table"
+            value="${item.make}"
           />
         </div>
         <div class="form-group has-success">
@@ -25,7 +26,7 @@ const editTemplate = () => html` <div class="row space-top">
             id="new-model"
             type="text"
             name="model"
-            value="Swedish"
+            value="${item.model}"
           />
         </div>
         <div class="form-group has-danger">
@@ -35,7 +36,7 @@ const editTemplate = () => html` <div class="row space-top">
             id="new-year"
             type="number"
             name="year"
-            value="2015"
+            value="${item.year}"
           />
         </div>
         <div class="form-group">
@@ -47,7 +48,7 @@ const editTemplate = () => html` <div class="row space-top">
             id="new-description"
             type="text"
             name="description"
-            value="Medium table"
+            value="${item.description}"
           />
         </div>
       </div>
@@ -59,7 +60,7 @@ const editTemplate = () => html` <div class="row space-top">
             id="new-price"
             type="number"
             name="price"
-            value="235"
+            value="${item.price}"
           />
         </div>
         <div class="form-group">
@@ -69,7 +70,7 @@ const editTemplate = () => html` <div class="row space-top">
             id="new-image"
             type="text"
             name="img"
-            value="/images/table.png"
+            value="${item.img}"
           />
         </div>
         <div class="form-group">
@@ -81,13 +82,30 @@ const editTemplate = () => html` <div class="row space-top">
             id="new-material"
             type="text"
             name="material"
-            value="Wood"
+            value="${item.material}"
           />
         </div>
         <input type="submit" class="btn btn-info" value="Edit" />
       </div>
     </div>
   </form>`;
-export function showEdit(ctx) {
-  ctx.render(editTemplate());
+export async function showEdit(ctx) {
+  const id = ctx.params.id;
+  const item = await getById(id);
+  ctx.render(editTemplate(item, onEdit));
+  async function onEdit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const missing = [...formData].filter(
+      ([k, v]) => k != "material" && v == ""
+    );
+    if (missing.length > 0) {
+      return alert("All fields are required!");
+    }
+    const data = Object.fromEntries(formData);
+    data.price = Number(data.price);
+    data.year = Number(data.year);
+    const result = await editItem(id, data);
+    ctx.page.redirect("/details/" + result._id);
+  }
 }
