@@ -3,7 +3,7 @@ console.log("working");
 // change URL on application content swap
 
 document.querySelector("nav").addEventListener("click", onNavigate);
-// handle back and forward buttons in browser
+// handle back and forward buttons in browser (popstate event will be triggered by doing a browser action such as a click on the back or forward button)
 window.addEventListener("popstate", onPopState);
 const views = {
   "/": () => `<h2>Home Page</h2>`,

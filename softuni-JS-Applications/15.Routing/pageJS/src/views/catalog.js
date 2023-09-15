@@ -9,7 +9,9 @@ const catalogTemplate = (recipes) => html`<div></h2> <h2>Catalog Page</h2>
   </ul>
 </div>`;
 const recipeCardTemplate = (recipe) =>
-  html`<li><a href=${`/recipes/${recipe._id}`}>${recipe.name}</a></li>`;
+  html`<li class="item">
+    <a href=${`/recipes/${recipe._id}`}>${recipe.name}</a>
+  </li>`;
 export async function showCatalog(ctx) {
   // const recipe = await getById(ctx.params.id);
   ctx.render(catalogTemplate(recipes));

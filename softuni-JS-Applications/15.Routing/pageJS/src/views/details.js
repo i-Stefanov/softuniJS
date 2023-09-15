@@ -5,11 +5,11 @@ const detailsTemplate = (recipe) => html`<div>
   <h3>${recipe.name}</h3>
   <h4>Ingredients</h4>
   <ul>
-    ${recipe.ingredients.map((i) => html` <li><p>${i}</p></li> `)}
+    ${recipe.ingredients.map((i) => html` <li class="item"><p>${i}</p></li> `)}
   </ul>
   <h4>Steps</h4>
   <ul>
-    ${recipe.steps.map((s) => html` <li><p>${s}</p></li> `)}
+    ${recipe.steps.map((s) => html` <li class="item"><p>${s}</p></li> `)}
   </ul>
 </div>`;
 

@@ -54,7 +54,6 @@ export async function showDetails(ctx) {
   if (hasUser) {
     requests.push(getOwnDonation(id, ctx.user._id));
   }
-  console.log(await Promise.all(requests));
   const [pet, donations, hasDonation] = await Promise.all(requests);
   const isOwner = hasUser && ctx.user._id == pet._ownerId;
   const canDonate = !isOwner && hasDonation == 0;
