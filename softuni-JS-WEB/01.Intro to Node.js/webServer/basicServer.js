@@ -4,7 +4,7 @@ const server = http.createServer((req, res) => {
   const { method, url } = req;
   console.log(method);
   console.log(url);
-  res.write("Server is running.Updated");
+  res.write("Server is running.");
   res.end();
 });
 server.listen(port);
