@@ -3,5 +3,16 @@ const eventBus = require("./eventBus");
 eventBus.subscribe("kitten-added", () => {
   console.log("Kitten has been added.");
 });
+const unsubscribe = eventBus.subscribe("kitten-added", (kittenName) => {
+  console.log(`Kitten has been added.Second time.It's name is ${kittenName}`);
+});
+eventBus.subscribe("kitten-removed", () => {
+  console.log("Kitten has been removed.");
+});
 
-eventBus.publish("kitten-added");
+eventBus.publish("kitten-added", "Fluffy");
+eventBus.publish("kitten-removed");
+console.log("-----------------------");
+unsubscribe();
+eventBus.publish("kitten-added", "Fluffy");
+eventBus.publish("kitten-removed");
