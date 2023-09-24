@@ -1,7 +1,9 @@
 const fs = require("fs");
 // Copy files
+// file from which we are reading data
 const readStream = fs.createReadStream("./input.txt");
 
+// file in which we are writing data
 const writeStream = fs.createWriteStream("./output.txt");
 
 //React on readStream's event
