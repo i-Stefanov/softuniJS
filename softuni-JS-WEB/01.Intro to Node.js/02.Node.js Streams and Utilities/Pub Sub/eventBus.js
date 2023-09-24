@@ -13,7 +13,7 @@ const subscribe = (eventName, eventListener) => {
     listeners[eventName] = [];
   }
   listeners[eventName].push(eventListener);
-  //The subscribe function can return another function that unsubscribes from events of our choice
+  //The subscribe function returns another function that unsubscribes from events of our choice
   return () => {
     // console.log("before unsub");
     // console.log(listeners);
