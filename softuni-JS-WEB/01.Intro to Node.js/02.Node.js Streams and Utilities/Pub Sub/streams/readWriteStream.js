@@ -1,10 +1,10 @@
 const fs = require("fs");
 // Copy files
 // file from which we are reading data
-const readStream = fs.createReadStream("./input.txt");
+const readStream = fs.createReadStream("./streams/input.txt");
 
 // file in which we are writing data
-const writeStream = fs.createWriteStream("./output.txt");
+const writeStream = fs.createWriteStream("./streams/output.txt");
 
 //React on readStream's event
 readStream.on("data", (chunk) => {
