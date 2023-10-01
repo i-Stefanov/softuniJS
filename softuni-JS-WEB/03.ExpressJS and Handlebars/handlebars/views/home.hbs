@@ -1,0 +1,30 @@
+{{! message is dynamic data from the context }}
+<h1>{{message}}</h1>
+{{! conditional in handlebars }}
+{{#if username}}
+  <p>Welcome {{username}}</p>
+{{else}}
+  <p>Guest user</p>
+{{/if}}
+{{! #with is a helper that changes the context (cahnges the object in which handlebars looks fo those props (in this case product)),so there is no need for us to write product.name , product.price etc. }}
+{{#with product}}
+  <div>
+    <p>{{name}}</p>
+    <p>{{price}}</p>
+  </div>
+{{/with}}
+{{! loop in handlebars}}
+{{#if contacts}}
+
+  <ul>
+    {{#each contacts}}
+    {{!-- to insert partials in hbs we use  the sign for less (>) --}}
+    {{>userCard}}
+      {{! if the array is empty the "code" after the else is exacuted}}
+      {{! {{else}}
+      {{! <p>No contacts in list.</p>  }}
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No contacts yet</p>
+{{/if}}
