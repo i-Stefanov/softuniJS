@@ -8,7 +8,11 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   console.log("create working");
-  await create(req.body.name, req.body.price);
+  try {
+    await create(req.body.name, req.body.price);
+  } catch (error) {
+    console.log(err);
+  }
   res.redirect("/catalog");
 });
 module.exports = router;

@@ -1,4 +1,5 @@
 const fs = require("fs");
+// /** @type {Object[]} */
 const data = JSON.parse(fs.readFileSync("./services/data.json"));
 function getList() {
   return data;
@@ -10,6 +11,14 @@ function getById(id) {
 async function create(name, price) {
   const id = "asdf" + ("0000" + ((Math.random() * 99999) | 0)).slice(-4);
   data.push({ id, name, price });
+  await persist();
+}
+async function deleteById(id) {
+  const index = data.findIndex((p) => p.id == id);
+  data.splice(index, 1);
+  await persist();
+}
+async function persist() {
   return new Promise((resolve, reject) => {
     fs.writeFile(
       "./services/data.json",
@@ -28,4 +37,5 @@ module.exports = {
   getList,
   getById,
   create,
+  deleteById,
 };
