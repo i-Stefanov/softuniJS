@@ -6,9 +6,9 @@ router.get("/", (req, res) => {
   res.render("create");
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   console.log("create working");
-  create(req.body.name, req.body.price);
+  await create(req.body.name, req.body.price);
   res.redirect("/catalog");
 });
 module.exports = router;
