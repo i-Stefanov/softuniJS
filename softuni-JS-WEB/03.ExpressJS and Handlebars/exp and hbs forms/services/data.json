@@ -1,0 +1,22 @@
+[
+  {
+    "id": "asdf-2123",
+    "name": "Product 1",
+    "price": 20
+  },
+  {
+    "id": "asdf-5465",
+    "name": "Product 2",
+    "price": 22
+  },
+  {
+    "id": "asdf7144",
+    "name": "Product 4",
+    "price": "222"
+  },
+  {
+    "id": "asdf3723",
+    "name": "Product 3",
+    "price": "11"
+  }
+]

@@ -1,15 +1,5 @@
-const data = [
-  {
-    id: "dadwqdas2123",
-    name: "Product 1",
-    price: 20,
-  },
-  {
-    id: "dadwqdas5465",
-    name: "Product 2",
-    price: 22,
-  },
-];
+const fs = require("fs");
+const data = JSON.parse(fs.readFileSync("./services/data.json"));
 function getList() {
   return data;
 }
@@ -17,7 +7,14 @@ function getList() {
 function getById(id) {
   return data.find((p) => p.id == id);
 }
+function create(name, price) {
+  const id = "asdf" + ("0000" + ((Math.random() * 99999) | 0)).slice(-4);
+  data.push({ id, name, price });
+  fs.writeFile("./services/data.json", JSON.stringify(data, null, 2), () => {});
+  console.log(data);
+}
 module.exports = {
   getList,
   getById,
+  create,
 };

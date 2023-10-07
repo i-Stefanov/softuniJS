@@ -33,3 +33,11 @@ nav a:hover {
 a {
   color: rgb(0, 0, 0);
 }
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+label span {
+  display: inline-block;
+  width: 50px;
+}
