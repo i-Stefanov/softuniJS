@@ -1,0 +1,35 @@
+body {
+  background-color: #ffd67d;
+}
+#content {
+  background-color: #fff;
+  width: 980px;
+  margin: auto;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #da8600;
+}
+nav li {
+  list-style: none;
+  padding: 3px 5px;
+  margin: 3px 3px;
+  /* border-right: 2px solid rgb(255, 255, 255); */
+  /* border-left: 2px solid rgb(255, 254, 254); */
+}
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+}
+nav a:hover {
+  color: aqua;
+}
+#main {
+  padding: 32px;
+}
+
+a {
+  color: rgb(0, 0, 0);
+}
