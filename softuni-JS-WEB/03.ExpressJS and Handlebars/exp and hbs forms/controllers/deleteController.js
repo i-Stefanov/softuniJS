@@ -8,7 +8,6 @@ router.get("/:id", (req, res) => {
 });
 router.post("/:id", async (req, res) => {
   const id = req.params.id;
-  console.log("delete works");
 
   await deleteById(id);
   res.redirect("/catalog");
