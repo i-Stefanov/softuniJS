@@ -1,0 +1,16 @@
+<main>
+  <div class="container">
+    <div class="col-9">
+      {{#each photos}}
+        {{!-- for each photo passed to the controller load data and use the petPhoto partial as template --}}
+          {{>petPhoto}}
+      {{else}}
+        <article class="not-available-photo">
+          <h1>No photo posts yet.</h1>
+        </article>
+      {{/each}}
+
+    </div>
+
+  </div>
+</main>

@@ -2,10 +2,11 @@ const router = require("express").Router();
 // TODO add controller routes
 const homeController = require("./controllers/homeController");
 const userController = require("./controllers/userController");
-const photoController = require("./controllers/photoController");
+const itemController = require("./controllers/itemController");
 router.use(homeController);
 router.use("/users", userController);
-router.use("/photos", photoController);
+router.use("/items", itemController);
+
 router.get("*", (req, res) => {
   res.redirect("/404");
 });
