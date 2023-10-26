@@ -7,9 +7,7 @@ export default function MovieList(props) {
       <Heading>Some text here!</Heading>
       <ul>
         <li>{<Movie data={props.movies[0]} />}</li>
-        <li>{<Movie data={props.movies[1]} />}</li>
         <li>{<Movie data={props.movies[2]} />}</li>
-        <li>{<Movie data={props.movies[3]} />}</li>
       </ul>
     </div>
   );
