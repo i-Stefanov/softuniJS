@@ -15,15 +15,15 @@ export default function Movie({
   // the [] as a second parameter means that we want the code in the hook to be executed only one single time when the components are rendered
   useEffect(() => {
     console.log(`Movie ${title} mounted.`);
-  }, []);
-  // useEffect monitors the values in the array for a change and then executes the code inside itself
+  }, [title]); // the title is passed because all variables used in the hook should be added to the dependency array
+  //   useEffect monitors the values in the array for a change and then executes the code inside itself
   useEffect(() => {
     console.log(`Movie ${title} updated.`);
-  }, [selected]);
+  }, [selected, title]);
   // executes when element is unmounted (deleted from the dom)
   useEffect(() => {
     return () => console.log(`Movie ${title} unmounted.`);
-  }, []);
+  }, [title]);
   return (
     <article className={styeles["movie-article"]}>
       <h2>{title}</h2>

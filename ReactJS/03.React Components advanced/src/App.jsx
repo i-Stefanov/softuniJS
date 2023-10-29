@@ -1,8 +1,16 @@
-import { useState } from "react";
-import { movies as moviesData } from "../public/movies";
+import { useEffect, useState } from "react";
+// import { movies as moviesData } from "../public/movies";
 import MovieList from "./components/MovieList";
 function App() {
-  const [movies, setMovies] = useState(moviesData);
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5173/movies.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setMovies(data.movies);
+      });
+  }, []);
   const onMovieDelete = (id) => {
     // the oldMovieList is the mvies array but in order to change it we use different name
     setMovies((oldMovieList) => oldMovieList.filter((x) => x.id !== id));
