@@ -2,7 +2,7 @@ import React from "react";
 import Movie from "./Movie";
 
 // {movies} is the destructured props object from the MovieList component in the app.jsx file
-export default function MovieList({ movies, onMovieDelete }) {
+export default function MovieList({ movies, onMovieDelete, onMovieSelect }) {
   let movieElements = [];
   //   for (const movie of movies) {
   // movieElements.push(React.createElement(Movie, movie));
@@ -20,7 +20,11 @@ export default function MovieList({ movies, onMovieDelete }) {
         // the key should be a uznique value for each element that is repetative
         // the key should be in the element which is the parent  (wraper) in this case li element
         <li key={movie.id}>
-          <Movie {...movie} onMovieDelete={onMovieDelete} />
+          <Movie
+            {...movie}
+            onMovieDelete={onMovieDelete}
+            onMovieSelect={onMovieSelect}
+          />
         </li>
       ))}
     </ul>
