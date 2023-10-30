@@ -1,18 +1,18 @@
-export default function User(props) {
+export default function User({ user, onInfoClick, onDeleteClick }) {
   return (
     <tr>
       <td>
         <img
-          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-          alt="Peter's profile"
+          src={user.imageUrl}
+          alt={`${user.firstName} ${user.lastName}`}
           className="image"
         />
       </td>
-      <td>Peter</td>
-      <td>Johnson</td>
-      <td>peter@abv.bg</td>
-      <td>0812345678</td>
-      <td>June 28, 2022</td>
+      <td>{user.firstName}</td>
+      <td>{user.lastName}</td>
+      <td>{user.email}</td>
+      <td>{user.phoneNumber}</td>
+      <td>{user.createdAt}</td>
 
       <td className="actions">
         <button className="btn edit-btn" title="Edit">
@@ -32,7 +32,11 @@ export default function User(props) {
             ></path>
           </svg>
         </button>
-        <button className="btn delete-btn" title="Delete">
+        <button
+          className="btn delete-btn"
+          title="Delete"
+          onClick={onDeleteClick}
+        >
           <svg
             aria-hidden="true"
             focusable="false"
@@ -49,7 +53,11 @@ export default function User(props) {
             ></path>
           </svg>
         </button>
-        <button className="btn info-btn" title="Info">
+        <button
+          className="btn info-btn"
+          title="Info"
+          onClick={() => onInfoClick(user._id)}
+        >
           <svg
             aria-hidden="true"
             focusable="false"
