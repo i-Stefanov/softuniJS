@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import User from "./User";
 import UserDetails from "./UserDetails";
 import * as userService from "../services//userService";
@@ -36,8 +36,9 @@ export default function UserList({
     onUserCreateSubmit(e);
     setShowAddUser(false);
   };
-  const onEditClick = (userId) => {
-    const user = setShowEditUser(userId);
+  const onEditClick = async (userId) => {
+    const user = await userService.getUser(userId);
+    setShowEditUser(user);
   };
 
   const onDeleteClick = (userId) => {
@@ -73,7 +74,11 @@ export default function UserList({
         />
       )}
       {showEditUser && (
-        <UserUpdate onClose={onClose} onUserUpdateSubmit={onUserUpdateSubmit} />
+        <UserUpdate
+          user={showEditUser}
+          onClose={onClose}
+          onUserUpdateSubmit={onUserUpdateSubmit}
+        />
       )}
 
       <div className="table-wrapper">
