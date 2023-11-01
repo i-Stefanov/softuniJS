@@ -4,11 +4,18 @@ import UserDetails from "./UserDetails";
 import * as userService from "../services//userService";
 import UserCreate from "./UserCreate";
 import UserDeleteModal from "./UserDeleteModal";
+import UserUpdate from "./UserUpdate";
 
-export default function UserList({ users, onUserCreateSubmit, onUserDelete }) {
+export default function UserList({
+  users,
+  onUserCreateSubmit,
+  onUserDelete,
+  onUserUpdateSubmit,
+}) {
   const [selectedUser, setSelectedUser] = useState(null);
   const [showDeleteUserModal, setShowDeleteUserModal] = useState(null);
   const [showAddUser, setShowAddUser] = useState(false);
+  const [showEditUser, setShowEditUser] = useState(null);
   const onInfoClick = async (userId) => {
     const user = await userService.getUser(userId);
     if (user) {
@@ -20,6 +27,7 @@ export default function UserList({ users, onUserCreateSubmit, onUserDelete }) {
     setSelectedUser(null);
     setShowAddUser(false);
     setShowDeleteUserModal(null);
+    setShowEditUser(null);
   };
   const onUserAddClick = () => {
     setShowAddUser(true);
@@ -28,6 +36,10 @@ export default function UserList({ users, onUserCreateSubmit, onUserDelete }) {
     onUserCreateSubmit(e);
     setShowAddUser(false);
   };
+  const onEditClick = (userId) => {
+    const user = setShowEditUser(userId);
+  };
+
   const onDeleteClick = (userId) => {
     // using the showDeleteModal to store the id of the user we want to delete
     setShowDeleteUserModal(userId);
@@ -59,6 +71,9 @@ export default function UserList({ users, onUserCreateSubmit, onUserDelete }) {
           onClose={onClose}
           onDelete={onDeleteHandler}
         />
+      )}
+      {showEditUser && (
+        <UserUpdate onClose={onClose} onUserUpdateSubmit={onUserUpdateSubmit} />
       )}
 
       <div className="table-wrapper">
@@ -236,6 +251,8 @@ export default function UserList({ users, onUserCreateSubmit, onUserDelete }) {
                 user={user}
                 onInfoClick={onInfoClick}
                 onDeleteClick={() => onDeleteClick(user._id)}
+                onEditClick={onEditClick}
+                onUserUpdateSubmit={onUserUpdateSubmit}
               />
             ))}
           </tbody>

@@ -36,6 +36,22 @@ function App() {
     }
     // close modal
   };
+  const onUserUpdateSubmit = async (e) => {
+    // prevent form submit to reload page
+    e.preventDefault();
+    // get data from the form
+    const formData = new FormData(e.currentTarget);
+    // transform the data in object
+    const data = Object.fromEntries(formData);
+    // send ajax request to the server
+    const userToUpdate = await userService.getOne(id);
+    console.log(createdUser);
+    // if successful - add new user to the state
+    if (createdUser) {
+      setUsers((state) => [...state, createdUser]);
+    }
+    // close modal
+  };
   const onUserDelete = async (userId) => {
     //delete from server
     await userService.del(userId);
@@ -52,6 +68,7 @@ function App() {
           <UserList
             users={users}
             onUserCreateSubmit={onUserCreateSubmit}
+            onUserUpdateSubmit={onUserUpdateSubmit}
             onUserDelete={onUserDelete}
           />
         </section>
