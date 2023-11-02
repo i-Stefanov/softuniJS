@@ -39,7 +39,6 @@ function App() {
   const onUserUpdateSubmit = async (e, userId) => {
     // prevent form submit to reload page
     e.preventDefault();
-    console.log("update");
     // get data from the form
     const formData = new FormData(e.currentTarget);
     // transform the data in object
