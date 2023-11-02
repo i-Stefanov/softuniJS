@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useState } from "react";
 import User from "./User";
 import UserDetails from "./UserDetails";
 import * as userService from "../services//userService";
@@ -40,6 +40,10 @@ export default function UserList({
     const user = await userService.getUser(userId);
     setShowEditUser(user);
   };
+  const onUserUpdateSubmitHandler = async (e, userId) => {
+    onUserUpdateSubmit(e, userId);
+    onClose();
+  };
 
   const onDeleteClick = (userId) => {
     // using the showDeleteModal to store the id of the user we want to delete
@@ -77,7 +81,7 @@ export default function UserList({
         <UserUpdate
           user={showEditUser}
           onClose={onClose}
-          onUserUpdateSubmit={onUserUpdateSubmit}
+          onUserUpdateSubmitHandler={onUserUpdateSubmitHandler}
         />
       )}
 

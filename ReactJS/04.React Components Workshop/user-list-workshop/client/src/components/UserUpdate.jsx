@@ -1,4 +1,4 @@
-export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
+export default function EditUser({ user, onClose, onUserUpdateSubmitHandler }) {
   return (
     <div className="overlay">
       <div className="backdrop"></div>
@@ -24,7 +24,8 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
               </svg>
             </button>
           </header>
-          <form onSubmit={onUserUpdateSubmit}>
+          {/* pass the user id to the onUserUpdateSubmit function so it knows which user we want to update */}
+          <form onSubmit={(e) => onUserUpdateSubmitHandler(e, user?._id)}>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="firstName">First name</label>
@@ -32,7 +33,12 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                   <span>
                     <i className="fa-solid fa-user"></i>
                   </span>
-                  <input id="firstName" name="firstName" type="text" />
+                  <input
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    defaultValue={user?.firstName}
+                  />
                 </div>
                 <p className="form-error">
                   First name should be at least 3 characters long!
@@ -44,7 +50,12 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                   <span>
                     <i className="fa-solid fa-user"></i>
                   </span>
-                  <input id="lastName" name="lastName" type="text" />
+                  <input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    defaultValue={user?.lastName}
+                  />
                 </div>
                 <p className="form-error">
                   Last name should be at least 3 characters long!
@@ -63,7 +74,7 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                     id="email"
                     name="email"
                     type="text"
-                    value={user.email}
+                    defaultValue={user?.email}
                   />
                 </div>
                 <p className="form-error">Email is not valid!</p>
@@ -78,7 +89,7 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                     id="phoneNumber"
                     name="phoneNumber"
                     type="text"
-                    value={user.phoneNumber}
+                    defaultValue={user?.phoneNumber}
                   />
                 </div>
                 <p className="form-error">Phone number is not valid!</p>
@@ -95,7 +106,7 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                   id="imageUrl"
                   name="imageUrl"
                   type="text"
-                  value={user.imageUrl}
+                  defaultValue={user?.imageUrl}
                 />
               </div>
               <p className="form-error">ImageUrl is not valid!</p>
@@ -112,7 +123,7 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                     id="country"
                     name="country"
                     type="text"
-                    value={user.address.country}
+                    defaultValue={user?.address.country}
                   />
                 </div>
                 <p className="form-error">
@@ -129,7 +140,7 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                     id="city"
                     name="city"
                     type="text"
-                    value={user.address.city}
+                    defaultValue={user?.address.city}
                   />
                 </div>
                 <p className="form-error">
@@ -149,7 +160,7 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                     id="street"
                     name="street"
                     type="text"
-                    value={user.address.street}
+                    defaultValue={user?.address.street}
                   />
                 </div>
                 <p className="form-error">
@@ -166,7 +177,7 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
                     id="streetNumber"
                     name="streetNumber"
                     type="text"
-                    value={user.address.streetNumber}
+                    defaultValue={user?.address.streetNumber}
                   />
                 </div>
                 <p className="form-error">
@@ -175,12 +186,7 @@ export default function EditUser({ user, onClose, onUserUpdateSubmit }) {
               </div>
             </div>
             <div id="form-actions">
-              <button
-                id="action-save"
-                className="btn"
-                type="submit"
-                onClick={onUserUpdateSubmit}
-              >
+              <button id="action-save" className="btn" type="submit">
                 Save
               </button>
               <button

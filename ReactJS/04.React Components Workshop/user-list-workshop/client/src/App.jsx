@@ -4,7 +4,7 @@ import Search from "./components/Search";
 import "./App.css";
 import UserList from "./components/UserList";
 import * as userService from "./services/userService";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -36,20 +36,22 @@ function App() {
     }
     // close modal
   };
-  const onUserUpdateSubmit = async (e) => {
+  const onUserUpdateSubmit = async (e, userId) => {
     // prevent form submit to reload page
     e.preventDefault();
+    console.log("update");
     // get data from the form
     const formData = new FormData(e.currentTarget);
     // transform the data in object
     const data = Object.fromEntries(formData);
+    console.log(data);
     // send ajax request to the server
-    const userToUpdate = await userService.getOne(id);
-    console.log(createdUser);
-    // if successful - add new user to the state
-    if (createdUser) {
-      setUsers((state) => [...state, createdUser]);
-    }
+    const updatedUser = await userService.update(userId, data);
+    // if the id matches any id of the state array (users) switch this user with the updatedUser
+    setUsers((state) =>
+      state.map((user) => (user._id === userId ? updatedUser : user))
+    );
+
     // close modal
   };
   const onUserDelete = async (userId) => {

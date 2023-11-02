@@ -25,11 +25,11 @@ export const create = async (userData) => {
   const result = await response.json();
   return result.user;
 };
-const update = async (userData) => {
+export const update = async (userId, userData) => {
   const { country, city, street, streetNumber, ...data } = userData;
   // add new key address to the data object with value another object with ey value pairs  country:country, city:city, address:address, addressNumber:addressNumber
   data.address = { country, city, street, streetNumber };
-  const response = await fetch(baseUrl, {
+  const response = await fetch(`${baseUrl}/${userId}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
