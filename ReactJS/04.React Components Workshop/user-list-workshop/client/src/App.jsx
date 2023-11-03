@@ -14,7 +14,6 @@ function App() {
       .then((usersList) => {
         // actualize the users array with all the users returned from the getAll() function
         setUsers(usersList);
-        console.log("userlist set");
       })
       .catch((err) => {
         console.log(err);
@@ -29,7 +28,6 @@ function App() {
     const data = Object.fromEntries(formData);
     // send ajax request to the server
     const createdUser = await userService.create(data);
-    console.log(createdUser);
     // if successful - add new user to the state
     if (createdUser) {
       setUsers((state) => [...state, createdUser]);
@@ -43,7 +41,6 @@ function App() {
     const formData = new FormData(e.currentTarget);
     // transform the data in object
     const data = Object.fromEntries(formData);
-    console.log(data);
     // send ajax request to the server
     const updatedUser = await userService.update(userId, data);
     // if the id matches any id of the state array (users) switch this user with the updatedUser
