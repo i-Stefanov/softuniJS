@@ -2,37 +2,23 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [username, setUsername] = useState("Pasho");
-  const [age, setAge] = useState();
-  const [cardNumber, setCardNumber] = useState();
-  const [occupation, setOccupation] = useState("rnd");
-  const [gender, setGender] = useState("male");
-  const [bio, setBio] = useState("");
   const [hobbies, setHobby] = useState({});
-  const onUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-  const onAgeChange = (e) => {
-    setAge(Number(e.target.value));
-  };
-  const onOccupationChange = (e) => {
-    setOccupation(e.target.value);
-  };
-  const onCardNumberChange = (e) => {
-    setCardNumber(e.target.value);
-  };
-  const onGenderChange = (e) => {
-    setGender(e.target.value);
-  };
+  const [formValues, setFormValues] = useState({
+    username: "Pensho",
+    cardNumber: "",
+    occupation: "rnd",
+    age: "",
+    gender: "male",
+    bio: "",
+  });
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(username);
-    console.log(age);
-    console.log(cardNumber);
   };
-  const onBioChange = (e) => {
-    setBio({});
+  const onChangeHandler = (e) => {
+    e.preventDefault();
+    setFormValues((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
+
   const onHobbiesChange = (e) => {
     setHobby((state) => ({ ...state, [e.target.value]: e.target.checked }));
   };
@@ -47,8 +33,8 @@ function App() {
               type="text"
               name="username"
               id="username"
-              value={username}
-              onChange={onUsernameChange}
+              value={formValues.username}
+              onChange={onChangeHandler}
             />
           </div>
           <div>
@@ -58,19 +44,19 @@ function App() {
               name="age"
               id="age"
               // if age == undefined or null value = ''
-              value={age ?? ""}
-              onChange={onAgeChange}
+              value={formValues.age === "" ? "" : Number(formValues.age)}
+              onChange={onChangeHandler}
             />
           </div>
-          {age >= 18 && (
+          {Number(formValues.age) >= 18 && (
             <div>
               <label htmlFor="credit-card">Credir card</label>
               <input
                 type="text"
                 name="creditCard"
                 id="credit-card"
-                value={cardNumber ?? ""}
-                onChange={onCardNumberChange}
+                value={formValues.cardNumber ?? ""}
+                onChange={onChangeHandler}
               />
             </div>
           )}
@@ -79,8 +65,8 @@ function App() {
             <select
               name="occupation"
               id="occupation"
-              value={occupation}
-              onChange={onOccupationChange}
+              value={formValues.occupation}
+              onChange={onChangeHandler}
             >
               <option value="devops">DevOps</option>
               <option value="rnd">RnD</option>
@@ -94,8 +80,8 @@ function App() {
               name="gender"
               id="male"
               value="male"
-              onChange={onGenderChange}
-              checked={gender == "male"}
+              onChange={onChangeHandler}
+              checked={formValues.gender == "male"}
             />
             <label htmlFor="female">Female</label>
             <input
@@ -103,8 +89,8 @@ function App() {
               name="gender"
               id="female"
               value="female"
-              onChange={onGenderChange}
-              checked={gender == "female"}
+              onChange={onChangeHandler}
+              checked={formValues.gender == "female"}
             />
           </div>
           <div>
@@ -114,7 +100,7 @@ function App() {
               id="bio"
               cols="30"
               rows="10"
-              onChange={onBioChange}
+              onChange={onChangeHandler}
             ></textarea>
           </div>
           <div>
