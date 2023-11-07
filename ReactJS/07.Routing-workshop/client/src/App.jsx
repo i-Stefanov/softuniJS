@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -16,11 +17,19 @@ function App() {
         <Header />
         {/* <!-- Main Content --> */}
         <main id="main-content">
-          <Home />
-          {/* <CreateGame></CreateGame> */}
-          {/* <Register></Register> */}
-          {/* <Catalog></Catalog> */}
-          {/* <Login /> */}
+          {/* Routes is where are all the components that we want to set route to */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/creategame" element={<CreateGame />} />
+
+            {/* <CreateGame></CreateGame> */}
+            {/* <Register></Register> */}
+            {/* <Catalog></Catalog> */}
+            {/* <Login /> */}
+          </Routes>
         </main>
         <Footer />
       </div>
