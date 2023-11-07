@@ -11,6 +11,10 @@ export default function UserList({
   onUserCreateSubmit,
   onUserDelete,
   onUserUpdateSubmit,
+  formValues,
+  formChangeHandler,
+  validateForm,
+  formErrors,
 }) {
   const [selectedUser, setSelectedUser] = useState(null);
   const [showDeleteUserModal, setShowDeleteUserModal] = useState(null);
@@ -68,6 +72,10 @@ export default function UserList({
           onClose={onClose}
           //   onUserCreateHandler closes the modal after submition because it is executed on submition - see UserCreate.jsx
           onUserCreateSubmit={onUserCreateHandler}
+          formValues={formValues}
+          formChangeHandler={formChangeHandler}
+          formErrors={formErrors}
+          validateForm={validateForm}
         />
       )}
       {showDeleteUserModal && (

@@ -4,10 +4,18 @@ import Search from "./components/Search";
 import "./App.css";
 import UserList from "./components/UserList";
 import * as userService from "./services/userService";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+  });
+  const [formErrors, setFormErrors] = useState({
+    firstName: "",
+    lastName: "",
+  });
   useEffect(() => {
     userService
       .getAll()
@@ -57,6 +65,26 @@ function App() {
     // using filter method because it creates a new reference and doesn't mutate the original array
     setUsers((state) => state.filter((user) => user._id !== userId));
   };
+  const formChangeHandler = (e) => {
+    setFormValues((state) => ({ ...state, [e.target.name]: e.target.value }));
+  };
+  const validateForm = (e) => {
+    const value = e.target.value;
+    const errors = {};
+    if (
+      e.target.name == "firstName" &&
+      (value.length < 3 || value.length > 20)
+    ) {
+      errors.firstName = "First name should be between 3 and 20 characters.";
+    }
+    if (
+      e.target.name == "lastName" &&
+      (value.length < 3 || value.length > 20)
+    ) {
+      errors.lastName = "Last name should be between 3 and 20 characters.";
+    }
+    setFormErrors(errors);
+  };
   return (
     <>
       <Header />
@@ -65,9 +93,13 @@ function App() {
           <Search />
           <UserList
             users={users}
+            formValues={formValues}
             onUserCreateSubmit={onUserCreateSubmit}
             onUserUpdateSubmit={onUserUpdateSubmit}
             onUserDelete={onUserDelete}
+            formChangeHandler={formChangeHandler}
+            formErrors={formErrors}
+            validateForm={validateForm}
           />
         </section>
       </main>

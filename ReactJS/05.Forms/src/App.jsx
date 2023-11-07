@@ -1,16 +1,23 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 
 function App() {
+  //! pass the ref to the uncontrolled input
+  //! ref gives react access directly to the dom
+
+  const ref = useRef();
   const [hobbies, setHobby] = useState({});
+  const [gender, setGender] = useState("male");
   const [formValues, setFormValues] = useState({
     username: "Pensho",
     cardNumber: "",
     occupation: "rnd",
     age: "",
-    gender: "male",
     bio: "",
   });
+  const onGenderChange = (e) => {
+    setGender(e.target.value);
+  };
   const onSubmitHandler = (e) => {
     e.preventDefault();
   };
@@ -80,8 +87,8 @@ function App() {
               name="gender"
               id="male"
               value="male"
-              onChange={onChangeHandler}
-              checked={formValues.gender == "male"}
+              onChange={onGenderChange}
+              checked={gender == "male"}
             />
             <label htmlFor="female">Female</label>
             <input
@@ -89,8 +96,8 @@ function App() {
               name="gender"
               id="female"
               value="female"
-              onChange={onChangeHandler}
-              checked={formValues.gender == "female"}
+              onChange={onGenderChange}
+              checked={gender == "female"}
             />
           </div>
           <div>
@@ -157,6 +164,15 @@ function App() {
               value="gardening"
               onChange={onHobbiesChange}
               checked={hobbies["gardening"]}
+            />
+          </div>
+          <div>
+            <label htmlFor="uncontrolled">Uncontrolled</label>
+            <input
+              type="text"
+              id="uncontrolled"
+              name="uncontrolled"
+              ref={ref}
             />
           </div>
           <div>
