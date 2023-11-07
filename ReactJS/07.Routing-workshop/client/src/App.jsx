@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import * as gameService from "./services/gameService";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
@@ -9,7 +10,10 @@ import CreateGame from "./components/CreateGame/CreateGame";
 import Register from "./components/Register/Register";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [games, setGames] = useState([]);
+  useEffect(() => {
+    gameService.getAll().then((result) => setGames(result));
+  }, []);
 
   return (
     <>
@@ -22,8 +26,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/catalog" element={<Catalog />} />
-            <Route path="/creategame" element={<CreateGame />} />
+            {/* pass the games which are loaded from the server via the useEffect and saved in the state as games with  setGames */}
+            <Route path="/catalog" element={<Catalog games={games} />} />
+            <Route path="/create-game" element={<CreateGame />} />
 
             {/* <CreateGame></CreateGame> */}
             {/* <Register></Register> */}
