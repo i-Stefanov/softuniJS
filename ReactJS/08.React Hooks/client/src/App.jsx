@@ -38,12 +38,20 @@ function App() {
   const hideModal = () => {
     setShowAddTodo(false);
   };
+  const onTodoDeleteClick = async (todoId) => {
+    await (`${baseUrl}/${todoId}`, { method: "DELETE" });
+    setTodos((state) => state.filter((todo) => todo._id !== todoId));
+  };
 
   return (
     <>
       <Header />
 
-      <TodoList onTodoAddClick={onTodoAddClick} todos={todos} />
+      <TodoList
+        onTodoAddClick={onTodoAddClick}
+        todos={todos}
+        onTodoDeleteClick={onTodoDeleteClick}
+      />
       <AddTodoModal
         onTodoAddSubmit={onTodoAddSubmit}
         show={showAddTodo}
