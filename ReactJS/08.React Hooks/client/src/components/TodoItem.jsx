@@ -1,6 +1,10 @@
 import { ListGroup, Button } from "react-bootstrap";
 
-export default function TodoItem({ todo, onTodoDeleteClick }) {
+import { useContext } from "react";
+import { TodoContext } from "../contexts/TodoContext";
+
+export default function TodoItem({ todo }) {
+  const { onTodoDeleteClick } = useContext(TodoContext);
   return (
     <ListGroup.Item
       action

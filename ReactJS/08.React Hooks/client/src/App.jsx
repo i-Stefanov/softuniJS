@@ -42,22 +42,21 @@ function App() {
     await (`${baseUrl}/${todoId}`, { method: "DELETE" });
     setTodos((state) => state.filter((todo) => todo._id !== todoId));
   };
+  const contextValues = {
+    onTodoDeleteClick,
+  };
 
   return (
-    <>
+    <TodoContext.Provider value={contextValues}>
       <Header />
 
-      <TodoList
-        onTodoAddClick={onTodoAddClick}
-        todos={todos}
-        onTodoDeleteClick={onTodoDeleteClick}
-      />
+      <TodoList onTodoAddClick={onTodoAddClick} todos={todos} />
       <AddTodoModal
         onTodoAddSubmit={onTodoAddSubmit}
         show={showAddTodo}
         hideModal={hideModal}
       />
-    </>
+    </TodoContext.Provider>
   );
 }
 
