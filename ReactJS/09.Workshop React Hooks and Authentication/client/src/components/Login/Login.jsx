@@ -9,7 +9,7 @@ export default function Login() {
   // Pass the context we want to use in the component to the useContext hook
   const { onLoginSubmit } = useContext(AuthContext);
   // Set initial values for the useForm hook values.The name of the property in he object should match the name of the input element  (name="email",name="password")
-  const { values, changeHandler } = useForm(
+  const { values, changeHandler, onSubmit } = useForm(
     {
       [LoginFormKeys.Email]: "",
       [LoginFormKeys.Password]: "",
@@ -20,7 +20,7 @@ export default function Login() {
     <>
       {/* <!-- Login Page ( Only for Guest users ) --> */}
       <section id="login-page" className="auth">
-        <form id="login" onSubmit={onLoginSubmit}>
+        <form id="login" onSubmit={onSubmit}>
           <div className="container">
             <div className="brand-logo"></div>
             <h1>Login</h1>
