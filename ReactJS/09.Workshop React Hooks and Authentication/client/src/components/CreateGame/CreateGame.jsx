@@ -1,30 +1,28 @@
 import { useState } from "react";
+import { useForm } from "../../hooks/useForm";
 export default function CreateGame({ onCreateGameSubmit }) {
   // set initial values to the state variables
-  const [values, setValues] = useState({
-    title: "",
-    category: "",
-    maxLevel: "",
-    imageUrl: "",
-    summary: "",
-  });
-  const onChangeHandler = (e) => {
-    setValues((values) => ({ ...values, [e.target.name]: e.target.value }));
-  };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    onCreateGameSubmit(values);
-  };
+  const { values, changeHandler, onSubmit } = useForm(
+    {
+      title: "",
+      category: "",
+      maxLevel: "",
+      imageUrl: "",
+      summary: "",
+    },
+    onCreateGameSubmit
+  );
+
   return (
     <>
       {/* <!-- Create Page ( Only for logged-in users ) --> */}
       <section id="create-page" className="auth">
-        <form id="create" onSubmit={onSubmit}>
+        <form id="create" method="POST" onSubmit={onSubmit}>
           <div className="container">
             <h1>Create Game</h1>
             <label htmlFor="leg-title">Legendary title:</label>
             <input
-              onChange={onChangeHandler}
+              onChange={changeHandler}
               value={values.title}
               type="text"
               id="title"
@@ -33,7 +31,7 @@ export default function CreateGame({ onCreateGameSubmit }) {
             />
             <label htmlFor="category">Category:</label>
             <input
-              onChange={onChangeHandler}
+              onChange={changeHandler}
               value={values.category}
               type="text"
               id="category"
@@ -42,7 +40,7 @@ export default function CreateGame({ onCreateGameSubmit }) {
             />
             <label htmlFor="levels">MaxLevel:</label>
             <input
-              onChange={onChangeHandler}
+              onChange={changeHandler}
               value={values.maxLevel}
               type="number"
               id="maxLevel"
@@ -52,7 +50,7 @@ export default function CreateGame({ onCreateGameSubmit }) {
             />
             <label htmlFor="game-img">Image:</label>
             <input
-              onChange={onChangeHandler}
+              onChange={changeHandler}
               value={values.imageUrl}
               type="text"
               id="imageUrl"
@@ -62,7 +60,7 @@ export default function CreateGame({ onCreateGameSubmit }) {
             <label htmlFor="summary">Summary:</label>
 
             <textarea
-              onChange={onChangeHandler}
+              onChange={changeHandler}
               value={values.summary}
               name="summary"
               id="summary"

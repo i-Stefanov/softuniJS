@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useForm } from "../../hooks/useForm";
+import { Link } from "react-router-dom";
 const LoginFormKeys = {
   Email: "email",
   Password: "password",
@@ -20,7 +21,7 @@ export default function Login() {
     <>
       {/* <!-- Login Page ( Only for Guest users ) --> */}
       <section id="login-page" className="auth">
-        <form id="login" onSubmit={onSubmit}>
+        <form id="login" method="POST" onSubmit={onSubmit}>
           <div className="container">
             <div className="brand-logo"></div>
             <h1>Login</h1>
@@ -45,7 +46,8 @@ export default function Login() {
             <input type="submit" className="btn submit" value="Login" />
             <p className="field">
               <span>
-                If you don't have profile click <a href="#">here</a>
+                If you don't have profile click
+                <Link to="/register">here</Link>
               </span>
             </p>
           </div>

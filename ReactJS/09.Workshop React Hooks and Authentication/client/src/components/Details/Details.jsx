@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import * as gameService from "../../services/gameService";
-import * as commentService from "../../services/commentService";
+import { gameServiceFactory } from "../../services/gameService";
 import { useEffect, useState } from "react";
+import { useService } from "../../hooks/useService";
+import { authServiceFactory } from "../../services/authService";
 export default function Details() {
   // get the id, of the item we want to display, using useParams
   const { gameId } = useParams();
@@ -9,6 +10,8 @@ export default function Details() {
   const [username, setUsername] = useState("");
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const gameService = useService(gameServiceFactory);
+  const authService = useService(authServiceFactory);
   useEffect(() => {
     gameService
       .getOne(gameId)
