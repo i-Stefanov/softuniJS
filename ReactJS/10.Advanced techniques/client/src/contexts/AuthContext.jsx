@@ -1,13 +1,14 @@
 import { authServiceFactory } from "../services/authService";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useLocalStorage("auth", {});
   const authService = authServiceFactory(auth.accessToken);
   const onLoginSubmit = async (data) => {
     try {
@@ -33,9 +34,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const onLogout = async () => {
+  const onLogout = () => {
     // todo authorized request
-    // await authService.logout();
+    authService.logout();
     setAuth({});
   };
   const contextValues = {
@@ -55,4 +56,9 @@ export const AuthProvider = ({ children }) => {
       </AuthContext.Provider>
     </>
   );
+};
+// custom hook used for importing context in LOgin for example
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+  return context;
 };
