@@ -7,10 +7,12 @@ export const create = async (gameId, comment) => {
   return result;
 };
 export const getAll = async (gameId) => {
-  const query = encodeURIComponent(`gameId=${gameId}`);
-  const result = await request.get(`${baseUrl}?where=${query}`);
+  const searchQuery = encodeURIComponent(`gameId="${gameId}"`);
+  const relationQuery = encodeURIComponent(`author=_ownerId:users`);
+  const result = await request.get(
+    `${baseUrl}?where=${searchQuery}&load=${relationQuery}`
+  );
   const comments = Object.values(result);
 
-  console.log(comments);
   return comments;
 };
