@@ -1,19 +1,20 @@
+import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { gameServiceFactory } from "../../services/gameService";
-import { useEffect, useState, useContext } from "react";
-import { useService } from "../../hooks/useService";
 import { authServiceFactory } from "../../services/authService";
-import { AuthContext } from "../../contexts/AuthContext";
+import * as commentService from "../../services/commentService";
+import { useService } from "../../hooks/useService";
+import { useAuthContext } from "../../contexts/AuthContext";
+import { AddComment } from "./AddComment/AddComment";
 // import * as commentService from "../../services/commentService";
 export default function Details() {
   const navigate = useNavigate();
   // get the id of the item we want to display using useParams
   const { gameId } = useParams();
-  const { userId } = useContext(AuthContext);
+  const { userId, isAuthenticated } = useAuthContext();
 
   const [game, setGame] = useState({});
-  const [username, setUsername] = useState("");
-  const [comment, setComment] = useState("");
+
   const [comments, setComments] = useState([]);
   const gameService = useService(gameServiceFactory);
   const authService = useService(authServiceFactory);
@@ -34,24 +35,18 @@ export default function Details() {
         console.log(err);
       });
   }, [gameId]);
-  const onCommentSubmit = async (e) => {
-    e.preventDefault();
-    await commentService.create({
-      gameId,
-      username,
-      comment,
-    });
-    setComments((state) => [
-      ...state,
-      {
-        gameId,
-        username,
-        comment,
-      },
-    ]);
-    // reset the values in the form fields
-    setUsername("");
-    setComment("");
+  const onCommentSubmit = async (values) => {
+    console.log(values);
+    const result = await commentService.create(gameId, values.comment);
+    console.log(result);
+    // setComments((state) => [
+    //   ...state,
+    //   {
+    //     gameId,
+    //     username,
+    //     comment,
+    //   },
+    // ]);
   };
   const onUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -84,12 +79,13 @@ export default function Details() {
             <h2>Comments:</h2>
             <ul>
               {/* <!-- list all comments for current game (If any) --> */}
-              {comments?.map((comment) => (
-                <li key={comment._id} className="comment">
-                  <p>{comment.username} said:</p>
-                  <p>Content: {comment.comment}</p>
-                </li>
-              ))}
+              {game.comments &&
+                Object.values(game.comments).map((comment) => (
+                  <li key={comment._id} className="comment">
+                    <p>{comment.username} said:</p>
+                    <p>Content: {comment.comment}</p>
+                  </li>
+                ))}
             </ul>
             {/* <!-- Display paragraph: If there are no games in the database --> */}
             {/* if there are no comments display the code below */}
@@ -111,28 +107,7 @@ export default function Details() {
           )}
         </div>
 
-        {/* <!-- Bonus --> */}
-        {/* <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) --> */}
-        <article className="create-comment">
-          <label>Add new comment:</label>
-          <form className="form" onSubmit={onCommentSubmit}>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              value={username}
-              onChange={onUsernameChange}
-            />
-            <textarea
-              name="comment"
-              id="comment"
-              value={comment}
-              onChange={onCommentChange}
-              placeholder="Comment......"
-            ></textarea>
-            <input className="btn submit" type="submit" value="Add Comment" />
-          </form>
-        </article>
+        {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
       </section>
     </>
   );
