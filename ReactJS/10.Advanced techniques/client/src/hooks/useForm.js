@@ -10,6 +10,8 @@ export const useForm = (initialValues, onSubmitHandler) => {
   const onSubmit = (e) => {
     e.preventDefault();
     onSubmitHandler(values);
+    // reset the form after submit
+    setValues(initialValues);
   };
   // function to change the values in the state with the new values from the edit Form
   const changeValues = (newValues) => {
