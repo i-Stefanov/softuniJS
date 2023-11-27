@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import { useForm } from "../../hooks/useForm";
 import { Link } from "react-router-dom";
 const LoginFormKeys = {
@@ -8,7 +7,7 @@ const LoginFormKeys = {
 };
 export default function Login() {
   // Pass the context we want to use in the component to the useContext hook
-  const { onLoginSubmit } = useContext(AuthContext);
+  const { onLoginSubmit } = useAuthContext();
   // Set initial values for the useForm hook values.The name of the property in he object should match the name of the input element  (name="email",name="password")
   const { values, changeHandler, onSubmit } = useForm(
     {
