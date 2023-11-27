@@ -11,42 +11,36 @@ export default function Details() {
   const navigate = useNavigate();
   // get the id of the item we want to display using useParams
   const { gameId } = useParams();
-  const { userId, isAuthenticated } = useAuthContext();
+  const { userId, isAuthenticated, userEmail } = useAuthContext();
 
   const [game, setGame] = useState({});
 
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
   const gameService = useService(gameServiceFactory);
   const authService = useService(authServiceFactory);
   useEffect(() => {
-    gameService
-      .getOne(gameId)
-      .then((result) => {
-        setGame(result);
-        // promise chaining (in order not to make another .then and make the code more nested)
-        // return commentService.getAll(gameId);
+    Promise.all([gameService.getOne(gameId), commentService.getAll(gameId)])
+      .then(([gameData, commentsData]) => {
+        setGame({
+          ...gameData,
+          comments: commentsData,
+        });
       })
 
-      // the result in the code below is the comments array from the comment service
-      // .then((result) => {
-      //   setComments(result);
-      // })
       .catch((err) => {
         console.log(err);
       });
   }, [gameId]);
   const onCommentSubmit = async (values) => {
-    console.log(values);
     const result = await commentService.create(gameId, values.comment);
-    console.log(result);
-    // setComments((state) => [
-    //   ...state,
-    //   {
-    //     gameId,
-    //     username,
-    //     comment,
-    //   },
-    // ]);
+    setGame((state) => ({
+      ...state,
+      comments: [
+        ...state.comments,
+        // since the result from the server doesn't come with author add userEmail to the comment on initial add of the comment beacuse there is no user at the initial comment adding time
+        { ...result, author: { email: userEmail } },
+      ],
+    }));
   };
   const onUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -80,16 +74,18 @@ export default function Details() {
             <ul>
               {/* <!-- list all comments for current game (If any) --> */}
               {game.comments &&
-                Object.values(game.comments).map((comment) => (
+                game.comments.map((comment) => (
                   <li key={comment._id} className="comment">
-                    <p>{comment.username} said:</p>
-                    <p>Content: {comment.comment}</p>
+                    {/* <p>{comment.username} said:</p> */}
+                    <p>
+                      {comment.author.email.split("@")[0]} : {comment.comment}
+                    </p>
                   </li>
                 ))}
             </ul>
             {/* <!-- Display paragraph: If there are no games in the database --> */}
             {/* if there are no comments display the code below */}
-            {comments.length === 0 && (
+            {game.comments?.length === 0 && (
               <p className="no-comment">No comments.</p>
             )}
           </div>
