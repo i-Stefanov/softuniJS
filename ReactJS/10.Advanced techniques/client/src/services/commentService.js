@@ -1,8 +1,9 @@
-import * as request from "./requester";
-const baseUrl = "http://localhost:3030/jsonstore/comments";
+import { requestFactory } from "./requester";
+const baseUrl = "http://localhost:3030/data/comments";
+const request = requestFactory();
 
-export const create = async (data) => {
-  const result = await request.post(baseUrl, data);
+export const create = async (gameId, comment) => {
+  const result = await request.post(baseUrl, { gameId, comment });
   return result;
 };
 export const getAll = async (gameId) => {
