@@ -13,7 +13,10 @@ import Logout from "./components/Logout/Logout";
 import { AuthProvider } from "./contexts/AuthContext";
 import { useService } from "./hooks/useService";
 import Edit from "./components/Edit/Edit";
-import { RouteGuard } from "./components/common/RouteGuard";
+import {
+  CreateRouteGuard,
+  EditRouteGuard,
+} from "./components/common/RouteGuard";
 
 function App() {
   // hook that comes from the react router
@@ -52,29 +55,23 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             {/* todo */}
-            <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<Register />} />
             {/* pass the games which are loaded from the server via the useEffect and saved in the state as games with  setGames */}
             <Route path="/catalog" element={<Catalog games={games} />} />
 
-            <Route
-              path="/create-game"
-              element={
-                <RouteGuard>
-                  <CreateGame onCreateGameSubmit={onCreateGameSubmit} />
-                </RouteGuard>
-              }
-            />
+            {/* see RouteGuard component */}
             <Route path="/catalog/:gameId" element={<Details />} />
-            <Route
-              path="/catalog/:gameId/edit"
-              element={<Edit onGameEditSubmit={onGameEditSubmit} />}
-            />
-
-            {/* <CreateGame></CreateGame> */}
-            {/* <Register></Register> */}
-            {/* <Catalog></Catalog> */}
-            {/* <Login /> */}
+            <Route element={<RouteGuard />}>
+              <Route
+                path="/create-game"
+                element={<CreateGame onCreateGameSubmit={onCreateGameSubmit} />}
+              />
+              <Route
+                path="/catalog/:gameId/edit"
+                element={<Edit onGameEditSubmit={onGameEditSubmit} />}
+              />
+              <Route path="/logout" element={<Logout />} />
+            </Route>
           </Routes>
         </main>
         <Footer />
