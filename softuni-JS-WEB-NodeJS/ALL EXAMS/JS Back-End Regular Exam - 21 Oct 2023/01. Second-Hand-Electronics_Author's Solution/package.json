@@ -1,0 +1,31 @@
+{
+  "name": "second-hand-electronics",
+  "version": "1.0.0",
+  "description": "JS Back-End Exam",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BDimitrova/Second-Hand-Electronics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BDimitrova/Second-Hand-Electronics/issues"
+  },
+  "homepage": "https://github.com/BDimitrova/Second-Hand-Electronics#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.3"
+  }
+}

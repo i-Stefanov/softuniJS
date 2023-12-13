@@ -1,5 +1,7 @@
+import { useGameContext } from "../../contexts/GameContext";
 import CatalogItem from "./CatalogItem/CatalogItem";
-export default function Catalog({ games }) {
+export default function Catalog() {
+  const { games } = useGameContext();
   return (
     <>
       {/* <!-- Catalogue --> */}

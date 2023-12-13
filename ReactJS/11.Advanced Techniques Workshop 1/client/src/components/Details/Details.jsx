@@ -7,6 +7,7 @@ import { useService } from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { AddComment } from "./AddComment/AddComment";
 import { gameReducer } from "../../reducers/gameReducer";
+import { useGameContext } from "../../contexts/GameContext";
 
 // import * as commentService from "../../services/commentService";
 export default function Details() {
@@ -15,6 +16,7 @@ export default function Details() {
   const { gameId } = useParams();
   const { userId, isAuthenticated, userEmail } = useAuthContext();
   const [game, dispatch] = useReducer(gameReducer, {});
+  const { deleteGame } = useGameContext();
 
   const gameService = useService(gameServiceFactory);
   const authService = useService(authServiceFactory);
@@ -42,6 +44,7 @@ export default function Details() {
       userEmail: userEmail,
     });
   };
+  const isOwner = game._ownerId === userId;
   const onUsernameChange = (e) => {
     setUsername(e.target.value);
   };
@@ -49,9 +52,16 @@ export default function Details() {
     setComment(e.target.value);
   };
   const onDeleteClick = async () => {
-    await gameService.delete(game._id);
-    //TODO delete from state
-    navigate("/catalog");
+    const deleteConfirm = confirm(
+      `Are you sure yu want to delete: ${game.title}`
+    );
+    if (deleteConfirm) {
+      // delete game from server
+      await gameService.delete(game._id);
+      //TODO delete from state
+      deleteGame(game._id);
+      navigate("/catalog");
+    }
   };
   return (
     <>
@@ -76,7 +86,6 @@ export default function Details() {
               {game.comments &&
                 game.comments.map((comment) => (
                   <li key={comment._id} className="comment">
-                    {/* <p>{comment.username} said:</p> */}
                     <p>
                       {comment.author.email.split("@")[0]} : {comment.comment}
                     </p>
@@ -91,7 +100,7 @@ export default function Details() {
           </div>
 
           {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
-          {game._ownerId === userId && (
+          {isOwner && (
             <div className="buttons">
               <Link to={`/catalog/${game._id}/edit`} className="button">
                 Edit

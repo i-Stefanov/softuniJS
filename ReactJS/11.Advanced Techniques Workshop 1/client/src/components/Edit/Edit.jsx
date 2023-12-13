@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useService } from "../../hooks/useService";
 import { gameServiceFactory } from "../../services/gameService";
+import { useGameContext } from "../../contexts/GameContext";
 
-export default function Edit({ onGameEditSubmit }) {
+export default function Edit() {
+  const { onGameEditSubmit } = useGameContext();
   const { gameId } = useParams();
   const gameService = useService(gameServiceFactory);
   const { values, changeHandler, onSubmit, changeValues } = useForm(

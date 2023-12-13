@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useForm } from "../../hooks/useForm";
-export default function CreateGame({ onCreateGameSubmit }) {
+import { useGameContext } from "../../contexts/GameContext";
+export default function CreateGame() {
+  const { onCreateGameSubmit } = useGameContext();
   // set initial values to the state variables
   const { values, changeHandler, onSubmit } = useForm(
     {
