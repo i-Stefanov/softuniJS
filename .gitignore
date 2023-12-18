@@ -35,3 +35,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/ALL EXAMS/
