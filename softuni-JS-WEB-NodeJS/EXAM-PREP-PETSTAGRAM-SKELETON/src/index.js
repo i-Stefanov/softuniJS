@@ -25,7 +25,7 @@ app.engine(
 app.set("view engine", "hbs");
 // tell express where to look for the view folder
 app.set("views", "src/views");
-// use the pulic folder to load css files and every path to files that start with static are in the public folder
+// use the public folder to load css files and every path to files that start with static are in the public folder
 app.use(express.static(path.resolve(__dirname, "public")));
 // setup body parser (parses the body of the forms from the client)
 app.use(express.urlencoded({ extended: false }));
@@ -34,4 +34,4 @@ app.use(cookieParser());
 app.use(auth);
 app.use(routes);
 app.use(errorHandler);
-app.listen(3000, console.log("Server listenes on port: 3000"));
+app.listen(3000, console.log("Server listens on port: 3000"));
