@@ -3,8 +3,9 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { SECRET } = require("../config/env");
 
-exports.create = (userData) => {
-  User.create(userData);
+exports.create = async (userData) => {
+  const user = await User.create(userData);
+  return user;
 };
 
 exports.login = async (username, password) => {
