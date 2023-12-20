@@ -38,3 +38,4 @@ dist-ssr
 *.sw?
 
 ALL_EXAMS
+env.js
