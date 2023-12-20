@@ -1,10 +1,12 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
 const hbs = require("express-handlebars");
 
 const routes = require("./routes");
+const { auth } = require("./middlewares/authMiddleware");
 
 const app = express();
 // DB setup
@@ -30,8 +32,8 @@ app.use(express.static(path.resolve(__dirname, "public")));
 
 // set path for views
 app.set("views", "src/views");
-
-//
+app.use(cookieParser());
+app.use(auth);
 app.use(routes);
 
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
