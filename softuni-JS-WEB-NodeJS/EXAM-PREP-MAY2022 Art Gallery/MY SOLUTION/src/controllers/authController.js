@@ -1,28 +1,44 @@
 const router = require("express").Router();
+const { isAuthenticated, isGuest } = require("../middlewares/authMiddleware");
 const authService = require("../services/authService");
 
-router.get("/login", (req, res) => {
+router.get("/login", isGuest, (req, res) => {
   res.render("loginView");
 });
-router.post("/login", async (req, res) => {
+router.post("/login", isGuest, async (req, res) => {
   const { username, password } = req.body;
-  const user = authService.login(username, password);
+  const user = await authService.login(username, password);
+  const token = await authService.generateToken(user);
+  // httpOnly:true is used to restrict external scripts from having access to the token
+  res.cookie("user", token, { httpOnly: true });
+  res.redirect("/");
 });
-router.get("/register", (req, res) => {
+router.get("/register", isGuest, (req, res) => {
   res.render("registerView");
 });
-router.post("/register", async (req, res) => {
-  const { username, password, repeatPassword, address } = req.body;
+router.post("/register", isGuest, async (req, res) => {
+  const { password, repeatPassword, ...userData } = req.body;
   if (password !== repeatPassword) {
     return res.render("registerView", { error: "Password mismatch!" });
   }
   try {
-    authService.create({ username, password, address });
-    res.redirect("/login");
+    const createdUser = await authService.create({
+      password,
+      ...userData,
+    });
+    const token = await authService.generateToken(createdUser);
+    res.cookie("user", token, { httpOnly: true });
+
+    res.redirect("/");
   } catch (error) {
     // todo add mongoose error mapper
-    return res.render("registerView", { error: "dbError" });
+    return res.render("registerView", { error: error });
   }
+});
+// there must be an user to have access to this route
+router.get("/logout", isAuthenticated, (req, res) => {
+  res.clearCookie("user");
+  res.redirect("/");
 });
 
 module.exports = router;
