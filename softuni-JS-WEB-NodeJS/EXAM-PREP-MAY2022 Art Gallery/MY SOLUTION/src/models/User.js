@@ -2,9 +2,19 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const { SALT_ROUNDS } = require("../config/env");
 const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  address: { type: String, required: true },
+  username: {
+    type: String,
+    required: [true, "Username is required."],
+    unique: true,
+  },
+  password: { type: String, required: [true, "Password is required."] },
+  address: { type: String, required: [true, "Address is required."] },
+  ownPublications: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Publication",
+    },
+  ],
 });
 
 //encrypt the password before saving it
