@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { isAuthenticated, isGuest } = require("../middlewares/authMiddleware");
 const authService = require("../services/authService");
+const { getErrorMessage } = require("../utils/errorHelpers");
 
 router.get("/login", isGuest, (req, res) => {
   res.render("loginView");
@@ -32,7 +33,7 @@ router.post("/register", isGuest, async (req, res) => {
     res.redirect("/");
   } catch (error) {
     // todo add mongoose error mapper
-    return res.render("registerView", { error: error });
+    return res.render("registerView", { error: getErrorMessage(error) });
   }
 });
 // there must be an user to have access to this route
