@@ -5,7 +5,7 @@
     <title>Home Page</title>
 
     <!-- Do not forget to change the path to the css file -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
 
   <body>
@@ -22,14 +22,14 @@
       <nav>
 
         <!-- Do not forget to change the path to the image -->
-        <img src="./img/art-logo.png" alt="logo" />
+        <img src="/img/art-logo.png" alt="logo" />
         <a href="/">ArtGallery</a>
 
         <ul class="menu">
-          <li><a href="/">Gallery</a></li>
+          <li><a href="/publications">Gallery</a></li>
           <!-- Logged users -->
           {{#if user}}
-            <li><a href="/create">Create Publication</a></li>
+            <li><a href="/publications/create">Create Publication</a></li>
             <li><a href="/profile">Profile</a></li>
             <li><a href="/logout">Logout</a></li>
             <!-- Guest users -->
