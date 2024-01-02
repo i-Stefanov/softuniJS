@@ -1,0 +1,18 @@
+<main>
+  <section id="gallery">
+    <h1>Gallery</h1>
+    <article class="gallery-container">
+      <!--If there are art publications in the database, show each of them-->
+      {{#each publications}}
+         {{>publicationPartial}}
+      {{else}}
+        <!--If there are still no art publications in the database display:-->
+        <article class="no-available-publications">
+          <h1>No publications created yet.</h1>
+          <a href="/publications/create" class="create-pub">Create publication</a>
+        </article>
+      {{/each}}
+
+    </article>
+  </section>
+</main>
