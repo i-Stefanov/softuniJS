@@ -7,6 +7,7 @@ const hbs = require("express-handlebars");
 
 const routes = require("./routes");
 const { auth } = require("./middlewares/authMiddleware");
+const { errorHandler } = require("./middlewares/errorHandlerMiddleware");
 
 const app = express();
 // DB setup
@@ -35,5 +36,6 @@ app.set("views", "src/views");
 app.use(cookieParser());
 app.use(auth);
 app.use(routes);
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
