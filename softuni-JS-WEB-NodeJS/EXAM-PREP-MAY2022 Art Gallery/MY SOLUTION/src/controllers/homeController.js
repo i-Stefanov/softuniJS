@@ -1,7 +1,9 @@
 const router = require("express").Router();
+const publicationService = require("../services/publicationService");
 
-router.get("/", (req, res) => {
-  res.render("homeView");
+router.get("/", async (req, res) => {
+  const publications = await publicationService.getAll().lean();
+  res.render("homeView", { publications });
 });
 
 module.exports = router;
