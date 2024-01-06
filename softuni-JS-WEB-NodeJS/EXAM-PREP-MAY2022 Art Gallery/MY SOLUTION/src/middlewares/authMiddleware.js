@@ -9,6 +9,7 @@ exports.auth = (req, res, next) => {
       if (err) {
         // if there is an error delete the token from cookies
         res.clearCookie("user");
+        res.redirect("/login");
         return next(err);
       }
       // attach the token to the req.user object

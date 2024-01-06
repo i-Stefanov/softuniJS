@@ -2,11 +2,14 @@ const mongoose = require("mongoose");
 
 const publicationSchema = new mongoose.Schema({
   title: { type: String, required: [true, "Title is required"] },
-  paintingTechnique: { type: String, required: [true, "Title is required"] },
-  artPicture: { type: String, required: [true, "Title is required"] },
+  paintingTechnique: {
+    type: String,
+    required: [true, "Painting technique is required"],
+  },
+  artPicture: { type: String, required: [true, "Image is required"] },
   certificate: {
     type: String,
-    required: [true, "Answer is required."],
+    required: [true, "Certificate field is required."],
     // enum defines a set of values that are allowed for this field (certificate in this case)
     enum: ["Yes", "No"],
   },
