@@ -15,6 +15,12 @@ const userSchema = new mongoose.Schema({
       ref: "Publication",
     },
   ],
+  sharedPublications: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Publication",
+    },
+  ],
 });
 
 //encrypt the password before saving it
