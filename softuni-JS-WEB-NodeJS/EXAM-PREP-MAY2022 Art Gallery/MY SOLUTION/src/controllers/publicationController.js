@@ -5,7 +5,9 @@ const {
   preloadPublication,
 } = require("../middlewares/publicationMiddlewares");
 const publicationService = require("../services/publicationService");
+const profileService = require("../services/profileService");
 const { getErrorMessage } = require("../utils/errorHelpers");
+
 router.get("/", async (req, res) => {
   const publications = await publicationService.getAll().lean();
   res.render("publication/gallery", { publications });
@@ -63,6 +65,11 @@ router.post("/create", isAuthenticated, async (req, res) => {
       ...req.body,
       author: req.user._id,
     });
+    // add the publication id to the ownPublications array
+    await profileService.addOwnPublication(
+      req.user._id,
+      createdPublication._id
+    );
     res.redirect("/publications");
   } catch (error) {
     res.render("publication/create", {
@@ -77,18 +84,22 @@ router.get(
   preloadPublication,
   isAuthor,
   async (req, res) => {
-    await publicationService.del(req.params.publicationId);
-
+    const userId = req.user._id;
+    const publicationId = req.params.publicationId;
+    await publicationService.del(publicationId);
+    await profileService.removePublicationAfterDelete(userId, publicationId);
     res.redirect("/publications");
   }
 );
 router.get("/:publicationId/share", isAuthenticated, async (req, res) => {
   const publicationId = req.params.publicationId;
   const publication = await publicationService.getOne(publicationId);
+
   // add the user id to the usersShared array in the instance of the publication model
   publication.usersShared.push(req.user._id);
   // then save the publication data
   await publication.save();
-  res.redirect("/");
+  await profileService.addSharedPublication(req.user._id, publication._id);
+  res.redirect(`/publications/${publicationId}/details`);
 });
 module.exports = router;
