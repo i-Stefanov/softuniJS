@@ -1,0 +1,29 @@
+.my-list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f7f381;
+  width: 500px;
+  padding: 8px 24px;
+  border: 1px solid #f7f381;
+  box-shadow: 0 0 10px 2px #333333;
+}
+.my-list p {
+  margin: auto;
+
+  width: 50%;
+}
+.my-list h2 {
+  margin: auto;
+
+  width: 50%;
+}
+.my-list p {
+  margin: auto;
+
+  width: 50%;
+}
+.my-list ol {
+  margin: 13px;
+}
