@@ -1,0 +1,53 @@
+@import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
+
+body {
+  background-color: rgb(170, 170, 171);
+}
+
+ul {
+  list-style: none;
+  margin: 40px 0;
+}
+
+li {
+  display: inline-block;
+}
+
+a {
+  padding: 5px 10px;
+  margin: 0 10px;
+  border: 2px solid black;
+  border-radius: 15px;
+  text-decoration: none;
+  position: relative;
+}
+ul:first-child a {
+  color: black;
+}
+
+ul:last-child a::before {
+  content: "\f019"; /* Unicode value for the download icon in Font Awesome */
+  font-family: "Font Awesome"; /* Specify the Font Awesome font family */
+
+  margin-right: 5px; /* Adjust spacing between text and icon */
+  color: black;
+}
+
+ul:not(:first-child) a {
+  background-color: rgb(51, 51, 51);
+  color: rgb(251, 251, 251);
+}
+
+ul:not(:first-child) :last-child a:hover {
+  background-color: rgb(0, 102, 0);
+  color: rgb(251, 251, 251);
+}
+
+ul:first-child li:last-child a:hover {
+  color: rgb(0, 102, 0);
+}
+
+ul:first-child :last-child a:hover {
+  border: 2px solid rgb(0, 102, 0);
+  color: rgb(0, 102, 0);
+}

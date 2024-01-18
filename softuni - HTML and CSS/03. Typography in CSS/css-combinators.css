@@ -1,0 +1,41 @@
+/* p {
+  background-color: yellow;
+} */
+
+/* * General or Subsequent Sibling Combinator
+ * Selects all spans after a paragraph if they share the same parent. */
+/* p ~ span {
+  color: red;
+} */
+
+/* * Next-sibling combinator */
+/* span + p {
+  text-decoration: underline;
+} */
+
+/* * Child combinator selects only direct children  */
+/* article > code {
+  text-decoration: line-through;
+} */
+
+/* * First Child - selects only the first child of the element */
+/* article span:first-child {
+  font-weight: bold;
+  color: red;
+} */
+
+/* article p:first-of-type {
+  background-color: blue;
+} */
+
+/* article span:last-child {
+  color: red;
+} */
+
+/* article p:last-of-type {
+  background-color: yellow;
+} */
+
+article span:nth-child(odd) {
+  background-color: red;
+}

@@ -1,0 +1,10 @@
+p {
+  font-weight: bold;
+  background-color: coral;
+  height: 100px;
+  /* margin-block: 10%; */
+  /* margin-inline: 30%; */
+  /* margin: 20px 30px 40px 50px; */
+  /* padding-block: 50px; */
+  /* padding-inline: 30%; */
+}

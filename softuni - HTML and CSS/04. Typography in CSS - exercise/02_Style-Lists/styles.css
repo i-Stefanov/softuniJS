@@ -1,0 +1,18 @@
+/* TODO: style the html */
+body {
+  background-color: #ededed;
+  line-height: 1.5;
+  font-size: 18px;
+}
+h2 {
+  background-color: #3b516b;
+  padding: 15px;
+  margin: 10px 5px;
+  text-decoration: underline;
+  letter-spacing: 3px;
+  border-radius: 10px;
+  color: aliceblue;
+}
+li {
+  margin-left: 20px;
+}

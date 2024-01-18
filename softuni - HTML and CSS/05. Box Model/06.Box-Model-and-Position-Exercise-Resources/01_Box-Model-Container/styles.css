@@ -1,0 +1,13 @@
+body {
+  background-color: lightslategray;
+}
+
+p {
+  width: 300px;
+  padding: 20px;
+  margin: auto;
+  background-color: #0f4069;
+  color: aliceblue;
+  border: 2px solid aliceblue;
+  border-radius: 10px 40px;
+}
