@@ -1,0 +1,20 @@
+.aspect-ratio-16x9 {
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+}
+.aspect-ratio-16x9::after {
+  display: block;
+  content: "";
+  padding-top: 56.25%; /* the ratio 9/16*100 = 56.25 */
+}
+
+.aspect-ratio-16x9 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}

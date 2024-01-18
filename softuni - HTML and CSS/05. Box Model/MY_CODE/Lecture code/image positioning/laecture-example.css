@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  height: 100vh;
+  position: relative;
+}
+.container:nth-child(1) {
+  background: #923;
+}
+.container:nth-child(2) {
+  background: #342;
+}
+
+.card {
+  width: 10em;
+  position: absolute;
+  border-radius: 0.3em;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.inner-shadow {
+  display: block;
+
+  /* background-color: red; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 1em 1.5em rgb(0, 0, 0, 0.8) inset;
+}

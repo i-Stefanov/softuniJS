@@ -1,0 +1,60 @@
+.main-nav {
+}
+.main-nav ul {
+  padding: 0;
+}
+.main-nav li {
+  list-style: none;
+  position: relative;
+}
+.main-nav > ul > li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 0.2em;
+}
+.main-nav a {
+  display: block;
+
+  padding: 0.5em 0.8em;
+  text-decoration: none;
+  color: #369;
+  background-color: #eee;
+  border: 2px solid #ccc;
+  border-radius: 0.3em;
+}
+.main-nav li:hover > a,
+.main-nav a:hover {
+  background-color: #369;
+  color: white;
+  border-color: #147;
+}
+
+.main-nav li:hover > a {
+  opacity: 0.6;
+}
+
+.main-nav li:hover a:hover {
+  opacity: 1;
+}
+
+.main-nav ul ul {
+  /* Selects all nested uls */
+  display: none;
+}
+
+.main-nav ul ul li {
+  margin: 0.2em 0;
+}
+
+.main-nav li:hover > ul {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 0 0.2em;
+}
+.main-nav ul ul li:hover > ul {
+  left: initial;
+  top: 0;
+  right: 100%;
+}
