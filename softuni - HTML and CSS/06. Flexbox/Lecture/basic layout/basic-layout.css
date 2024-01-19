@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.site {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  padding: 2em;
+}
+
+p {
+  margin: 0;
+}
+
+.site > * {
+  border: 2px solid green;
+  padding: 2em;
+}
+.site-content {
+  flex-grow: 2;
+}
+
+.site-sidebar {
+  flex-grow: 1;
+}
+
+.site-header {
+  flex-basis: 100%;
+}
+.site-footer {
+  margin-top: auto;
+  flex-basis: 100%;
+}

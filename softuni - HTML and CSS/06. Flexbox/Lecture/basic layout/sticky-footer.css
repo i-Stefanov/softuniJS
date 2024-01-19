@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.site {
+  display: flex;
+  border: 2px solid black;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 2em;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+}
+
+.main main {
+  flex-grow: 2;
+}
+
+.main aside {
+  flex-grow: 1;
+}
+
+.site [class^="site-"] {
+  border: 2px solid green;
+  padding: 2em;
+}
+
+.site-footer {
+  margin-top: auto;
+}
