@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 2em;
+}
+.container {
+  width: 100%;
+}
+
+header {
+  margin: 0 100px;
+  border-bottom: 2px solid #000;
+}
+
+main {
+  width: 60%;
+  margin-left: 6em;
+}
+main,
+header h3,
+header nav,
+nav li,
+aside {
+  display: inline-block;
+}
+
+nav {
+  margin-top: 0.3em;
+  float: right;
+}
+.nested-paragraph {
+  position: relative;
+}
+.first-span,
+.second-span {
+  display: inline-block;
+  width: 45%;
+}
+.second-span {
+  vertical-align: top;
+  padding-left: 1.4em;
+}
+.first-span {
+  padding-right: 1.4em;
+  border-right: 4px solid rgb(0, 0, 0, 0.1);
+}
+.author-span {
+  position: absolute;
+  bottom: 1rem;
+  bottom: 50px;
+  right: 5px;
+}
+.author-span,
+.second-span {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+nav li {
+  margin: 0 1em;
+}
+nav a {
+  color: rgb(1, 209, 1);
+  text-decoration: none;
+}
+
+aside {
+  width: 20%;
+  vertical-align: top;
+  margin-left: 50px;
+}
+aside a {
+  color: rgb(1, 209, 1);
+  text-decoration: none;
+  line-height: 25px;
+}
+
+article:nth-child(1) img {
+  width: 130px;
+  padding: 0.3em;
+  border: 2px solid #000;
+  margin: 0 0 1em 1em;
+
+  float: right;
+}
+
+article:nth-child(3) img {
+  float: left;
+  border: 2px solid black;
+  padding: 0.3em;
+  margin: 0 1em 1em 0;
+}

@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  margin: 0;
+}
+
+h1 {
+  color: aliceblue;
+  font-size: 4em;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 20px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
