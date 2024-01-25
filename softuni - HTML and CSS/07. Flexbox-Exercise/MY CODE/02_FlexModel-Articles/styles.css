@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  padding: 3rem;
+  border: 2px solid black;
+  justify-content: space-evenly;
+  max-width: 70vw;
+  gap: 2rem;
+}
+
+article {
+  padding: 1rem;
+  flex-basis: 250px;
+}
+h2 {
+  padding-bottom: 1em;
+}
+p {
+  line-height: 25px;
+  letter-spacing: 1px;
+}
