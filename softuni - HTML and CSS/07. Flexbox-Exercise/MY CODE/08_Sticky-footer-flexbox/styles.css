@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  max-width: 65em;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+h2 {
+  margin-bottom: 1em;
+}
+p {
+  padding-bottom: 1em;
+}
+
+header {
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+}
+
+main {
+  flex: 1 1 auto;
+  height: 100vh;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc;
+}

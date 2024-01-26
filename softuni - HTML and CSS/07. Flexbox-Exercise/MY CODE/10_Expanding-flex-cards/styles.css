@@ -1,0 +1,42 @@
+body {
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+ul {
+  display: flex;
+  gap: 1em;
+}
+
+li {
+  display: block;
+  list-style: none;
+  width: 10em;
+  height: 20em;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px 5px rgb(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+img {
+  display: block;
+  width: auto;
+  height: 100%;
+  transform: translateX(-30%);
+  transition: all 0.3s ease-in-out;
+}
+
+li:hover {
+  width: 30em;
+}
+
+img:hover {
+  transform: translate(0);
+}

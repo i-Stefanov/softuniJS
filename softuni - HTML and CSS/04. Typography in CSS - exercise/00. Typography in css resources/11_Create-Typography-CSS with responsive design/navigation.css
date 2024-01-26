@@ -1,0 +1,12 @@
+.main-nav ul {
+  display: flex;
+}
+
+.main-nav li {
+  display: block;
+}
+
+.main-nav a {
+  color: white;
+  padding: 0.5em 1em;
+}
