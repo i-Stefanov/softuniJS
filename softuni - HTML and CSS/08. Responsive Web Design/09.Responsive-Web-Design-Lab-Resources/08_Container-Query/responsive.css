@@ -5,3 +5,9 @@
 .post {
   container-type: inline-size;
 }
+
+@container (max-width:300px) {
+  .card {
+    background-color: red;
+  }
+}

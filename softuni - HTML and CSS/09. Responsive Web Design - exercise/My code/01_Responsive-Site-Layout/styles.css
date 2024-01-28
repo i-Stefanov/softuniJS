@@ -1,0 +1,29 @@
+header,
+aside,
+article,
+footer {
+  background-color: rgb(91, 188, 244);
+  border-radius: 0.5em;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+main {
+  display: flex;
+  gap: 1em;
+}
+main aside {
+  flex: 1 1 30%;
+}
+
+main article {
+  flex: 1 1 70%;
+}
+
+@media (max-width: 500px) {
+  main {
+    flex-direction: column;
+  }
+}
