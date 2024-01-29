@@ -5,11 +5,18 @@ footer {
   background-color: rgb(91, 188, 244);
   border-radius: 0.5em;
 }
+
 body {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1em;
 }
+
+header,
+footer {
+  flex: 1 1 100%;
+}
+
 main {
   display: flex;
   gap: 1em;
