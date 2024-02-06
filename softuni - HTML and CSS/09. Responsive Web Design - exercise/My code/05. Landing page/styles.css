@@ -1,0 +1,118 @@
+@import url(reset.css);
+@import url(typography.css);
+@import url(navigation.css);
+
+.container {
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: #333333;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 88em;
+  margin: 0 auto;
+  padding: 0 3em 2em 3em;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2em;
+  border: 3px solid black;
+}
+
+header h1 {
+  font-family: "Merriweather", serif;
+  color: #800080;
+}
+
+header p {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+
+.heading-container {
+  flex: 1 1 20%;
+}
+.heading-container * {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  flex: 1 1 15%;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+nav a {
+  line-height: 3;
+  color: #333333;
+  font-weight: bold;
+}
+
+.need-a-website {
+  display: flex;
+  border: 3px solid black;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  flex: 1 1 50%;
+}
+
+.icon-container i {
+  font-size: 10em;
+  color: black;
+}
+
+.our-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid black;
+}
+
+.people-list {
+  display: flex;
+  max-width: 80%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2em;
+}
+
+.people-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 30%;
+  border: 1px solid black;
+  min-width: 12em;
+}
+
+.image-container {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}

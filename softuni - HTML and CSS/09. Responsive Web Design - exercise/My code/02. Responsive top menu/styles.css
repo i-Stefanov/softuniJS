@@ -1,0 +1,17 @@
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+nav li {
+  list-style: none;
+  margin-right: 1em;
+}
+
+nav a {
+  background-color: #16a085;
+  border: 2px solid #f1c40f;
+  color: #f1c40f;
+  padding: 0.5em 1em;
+  text-decoration: none;
+}
