@@ -3,12 +3,9 @@
     display: none;
   }
 
-  header,
-  .testimonials,
-  .footer-container {
-    max-width: 55em;
-    /* margin: 0 auto; */
-    justify-content: space-around;
+  header {
+    width: 90%;
+    align-self: center;
   }
 
   .heading-container {
@@ -17,6 +14,10 @@
 
   nav {
     flex: 1 1 70%;
+  }
+
+  nav a {
+    color: black;
   }
 
   .need-a-website {
@@ -50,6 +51,8 @@
   }
 
   footer {
+    display: flex;
+    flex-direction: column;
     padding: 2em 1em;
     font-size: 10px;
   }
@@ -59,20 +62,22 @@
   }
 
   .footer-container {
+    align-self: center;
     display: flex;
+    width: 90%;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: baseline;
-    justify-content: space-evenly;
-    gap: 2em;
   }
 
   .first-col {
-    flex: 0 1 25%;
+    flex: 0 1 20%;
   }
   .second-col {
+    max-width: 30em;
     flex: 1 1 30%;
   }
   .third-col {
-    flex: 0 1 30%;
+    flex: 0 1 20%;
   }
 }
