@@ -1,2 +1,78 @@
-@media (width < 600px) {
+@media (width > 600px) {
+  .menu-icon {
+    display: none;
+  }
+
+  header,
+  .testimonials,
+  .footer-container {
+    max-width: 55em;
+    /* margin: 0 auto; */
+    justify-content: space-around;
+  }
+
+  .heading-container {
+    flex: 1 1 30%;
+  }
+
+  nav {
+    flex: 1 1 70%;
+  }
+
+  .need-a-website {
+    max-width: 50em;
+    margin: 0 auto;
+  }
+
+  .our-team ul li,
+  .testimonials ul li {
+    flex: 1 1 30%;
+  }
+
+  .heading-container {
+    flex: 1 1 30%;
+  }
+
+  header nav {
+    display: flex;
+    flex: 1 1 50%;
+  }
+
+  header ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0 1em;
+  }
+
+  .sign-up form {
+    max-width: 35em;
+  }
+
+  footer {
+    padding: 2em 1em;
+    font-size: 10px;
+  }
+
+  footer h2 {
+    padding: 0.5em 0;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-evenly;
+    gap: 2em;
+  }
+
+  .first-col {
+    flex: 0 1 25%;
+  }
+  .second-col {
+    flex: 1 1 30%;
+  }
+  .third-col {
+    flex: 0 1 30%;
+  }
 }
