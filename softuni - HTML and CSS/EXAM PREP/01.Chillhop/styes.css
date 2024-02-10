@@ -1,0 +1,59 @@
+@import url(./reset.css);
+@import url(./typography.css);
+
+.container {
+  margin: 2em;
+  padding: 2em;
+  background-color: #1881b6;
+  width: 52em;
+  border: 2px solid black;
+  border-radius: 1em;
+  display: flex;
+  gap: 2em;
+}
+
+.left {
+  font-size: 14px;
+  font-family: Helvetica, sans-serif;
+}
+
+.left h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.left h2 {
+  color: white;
+}
+
+.left p {
+  text-indent: 30px;
+}
+
+ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+li {
+  display: block;
+}
+
+li a {
+  color: black;
+  border: 2px solid black;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  font-weight: bold;
+}
+
+img {
+  width: 300px;
+}
+
+.pink {
+  background-color: #b6416d;
+  color: white;
+}
