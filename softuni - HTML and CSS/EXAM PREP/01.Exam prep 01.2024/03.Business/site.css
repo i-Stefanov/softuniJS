@@ -1,0 +1,177 @@
+@import url(./reset.css);
+@import url(./typography.css);
+@import url();
+@import url();
+@import url();
+
+.hero-container {
+  background: url(./images/background.jpg) no-repeat center center / cover fixed;
+  color: white;
+  height: 47em;
+}
+
+.container {
+  max-width: 76em;
+  margin: 0 auto;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cormorant Garamond", serif;
+}
+
+p {
+  font-family: "PT Sans", sans-serif;
+}
+
+.hero-info {
+  text-align: start;
+  padding-right: 45em;
+}
+
+.hero-info p {
+  line-height: 2;
+  font-size: 1.2em;
+}
+
+header {
+  display: flex;
+  padding: 2em 3em 0 3em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  width: 80px;
+}
+
+.logo {
+  flex: 1 1 70%;
+}
+
+header nav {
+  flex: 1 1 30%;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+header a {
+  color: white;
+  text-transform: uppercase;
+  padding-left: 0.5em;
+  font-family: "PT Sans", sans-serif;
+}
+
+img {
+  width: 100px;
+}
+
+.main-info {
+  border: 1px solid #cccccc;
+  padding: 3em;
+}
+
+/* .objectives,
+.aims {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: baseline;
+} */
+
+.main-info .container {
+  display: flex;
+
+  gap: 3em;
+}
+
+.main-info a {
+  color: #b0825c;
+  border: 1px solid #b0825c;
+  padding: 0.5em 1em;
+  margin-top: auto;
+}
+
+.sponsors,
+.partners {
+  padding-top: 2em;
+}
+
+.sponsors .container,
+.partners .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sponsors h3,
+.partners h3 {
+  color: #b0825c;
+}
+
+.images {
+  display: flex;
+}
+
+.image-container {
+  margin: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dddddd;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  box-shadow: 11px 13px 34px -2px rgba(0, 0, 0, 0.22);
+}
+
+footer {
+  background-color: #171720;
+  color: white;
+  padding: 2em;
+  border-bottom: 1px solid #b39978;
+}
+
+.main-footer {
+  display: flex;
+  gap: 4em;
+}
+
+footer ul {
+  padding: 0;
+}
+
+footer a,
+footer p {
+  color: #b39978;
+  line-height: 2.5;
+}
+
+.column {
+  flex: 1 1 20%;
+}
+
+footer p {
+  padding-bottom: 0.3em;
+  text-transform: uppercase;
+}
+
+footer h4 {
+  padding: 0.5em 0;
+}
+
+.copyright {
+  border-top: 1px solid #b39978;
+  background-color: #171720;
+  color: #b39978;
+  vertical-align: middle;
+}
+
+.copyright p {
+  padding: 1em 0;
+}
