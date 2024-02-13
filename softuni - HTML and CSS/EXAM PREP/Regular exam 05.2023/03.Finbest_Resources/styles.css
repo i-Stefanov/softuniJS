@@ -1,0 +1,76 @@
+@import url(./reset.css);
+@import url(./typography.css);
+
+html {
+  font-family: Montserrat, sans-serif;
+}
+
+.header-container,
+.header-container nav,
+.header-container ul,
+.user-container {
+  display: flex;
+}
+
+.header-container {
+  max-width: 83em;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.header-container ul {
+  padding: 2em;
+}
+
+nav ul {
+  justify-content: space-evenly;
+  width: 40em;
+}
+.header-container ul a {
+  color: black;
+}
+
+.user-container ul {
+  gap: 2em;
+}
+
+.sign-up {
+  padding: 1em 2em;
+  background-color: #ade2df;
+  border-radius: 0.6em;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+}
+
+.links a {
+  padding: 1em 2em;
+  background-color: black;
+  border-radius: 0.5em;
+  color: white;
+}
+
+.links i {
+  padding-right: 0.5em;
+}
+
+.hero {
+  background-color: #ade2df;
+  padding: 3em;
+  text-align: center;
+}
+
+.stats .container {
+  display: flex;
+  margin: 3em auto;
+  padding: 5em 0;
+  max-width: 74em;
+}
+
+.column {
+  text-align: center;
+  border-inline: 1px solid rgb(0, 0, 0, 0.3);
+}

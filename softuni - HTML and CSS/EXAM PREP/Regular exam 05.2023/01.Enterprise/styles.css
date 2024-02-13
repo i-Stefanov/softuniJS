@@ -16,13 +16,13 @@ body,
 .card {
   display: flex;
   flex-direction: column;
-  flex: 1 0 400px;
+  flex: 1 0 30%;
   box-shadow: 11px 13px 25px -5px rgba(0, 0, 0, 0.34);
 }
 
-/* .image-container {
-  height: 20em;
-} */
+.image-container {
+  flex: 1 0 30%;
+}
 
 .image-container img {
   object-fit: cover;
@@ -31,8 +31,14 @@ body,
   height: 20em;
 }
 
+h5 {
+  margin: 0;
+}
+
 h4 {
-  font-weight: bold;
+  font-weight: normal;
+  color: black;
+  margin: 0 0 1em 0;
 }
 
 .info-container {
