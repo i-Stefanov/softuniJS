@@ -4,6 +4,9 @@
 html {
   font-family: Montserrat, sans-serif;
 }
+body {
+  background: #f3f5fa;
+}
 
 .header-container,
 .header-container nav,
@@ -63,14 +66,161 @@ nav ul {
   text-align: center;
 }
 
-.stats .container {
+.hero .container {
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.container {
   display: flex;
+  max-width: 74em;
+  margin: 0 auto;
+}
+
+.stats .container {
   margin: 3em auto;
   padding: 5em 0;
-  max-width: 74em;
 }
 
 .column {
   text-align: center;
+  padding-bottom: 2em;
+}
+
+.col-1 {
+  border-left: 1px solid rgb(0, 0, 0, 0.3);
+}
+.col-2 {
   border-inline: 1px solid rgb(0, 0, 0, 0.3);
+}
+.col-3 {
+  border-right: 1px solid rgb(0, 0, 0, 0.3);
+}
+
+.features {
+  background-color: #ade2df;
+}
+
+.features .container {
+  gap: 3em;
+}
+
+.features .image-container {
+  flex: 0 1 35%;
+  padding-inline: 3em;
+  border: 2px dashed #98b8b6;
+}
+
+.features-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 40%;
+  align-items: flex-start;
+  justify-content: center;
+  padding-inline: 6em;
+}
+
+.features-info h2 {
+  font-size: 3em;
+}
+
+.explore {
+  border-bottom: 1px solid black;
+  padding-bottom: 0.3em;
+  margin-bottom: 2em;
+}
+
+.features-info a {
+  color: black;
+}
+
+.features-info i {
+  padding-left: 0.5em;
+}
+
+.pricing .container {
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.pricing-header {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  gap: 2em;
+}
+
+.pricing-header a {
+  color: black;
+  padding: 0.6em 1.2em;
+  border-radius: 0.6em;
+  background-color: #ade2df;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.pricing-header h2 {
+  font-weight: bold;
+}
+
+.plans {
+  display: flex;
+  border: 2px solid #dbdbdb;
+  background-color: #ffffff;
+  border-radius: 0.5em;
+}
+
+.plan {
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  margin-bottom: 10em;
+}
+
+/* .plan .links {
+  flex: 0 0 20%;
+} */
+
+.plan h5 {
+  font-weight: 700;
+}
+
+.plan ul {
+  padding: 0;
+}
+
+.plan li {
+  position: relative;
+  padding-left: 1.5em; /* Space for custom bullet */
+}
+
+.plan li::before {
+  content: "\f00c"; /* FontAwesome check icon */
+  font-family: "FontAwesome";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: black; /* Example color */
+}
+
+.premium {
+  border-right: 2px solid #dbdbdb;
+}
+
+.expand {
+  background-color: #ade2df;
+}
+
+.price {
+  display: inline;
+  padding: 0;
 }
