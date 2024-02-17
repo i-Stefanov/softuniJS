@@ -1,0 +1,81 @@
+body {
+  font-family: "Agbalumo", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  border: 2px solid black;
+  width: 870px;
+}
+
+main {
+  background-color: #ffffff;
+  margin-block: 2em;
+  display: flex;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d5ebea;
+}
+
+header p {
+  width: 90%;
+  margin: 0;
+  text-align: center;
+  border-block: 2px solid black;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  flex: 0 0 30%;
+  height: 280px;
+  border: 2px solid black;
+  margin: 1em;
+  font-size: 10px;
+}
+
+.card p {
+  text-indent: 2em;
+  padding-top: 1em;
+}
+
+.card img {
+  width: 100%;
+}
+
+.info {
+  flex: 2 1 60%;
+  padding: 0 3em 0 0;
+}
+
+.info p {
+  text-indent: 2em;
+  text-align: left;
+}
+
+.main-footer {
+  background-color: black;
+  color: white;
+  width: 40%;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+footer {
+  background-color: #d5ebea;
+  padding: 1em 2em;
+}
+
+footer p {
+  padding: 0;
+  margin: 0;
+  padding: 0.3em 0;
+}
