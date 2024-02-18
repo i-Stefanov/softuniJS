@@ -1,0 +1,66 @@
+@import url(./reset.css);
+@import url(./typography.css);
+
+html {
+  font-family: "Inter", serif;
+  font-size: 14px;
+}
+
+.container {
+  background-color: #85dcff;
+  display: flex;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 4em 2em 4em 3em;
+  margin-top: 1em;
+  justify-content: space-between;
+}
+
+h1 {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+p {
+  padding: 0;
+}
+
+.first-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 0 1 60%;
+}
+
+.second-row {
+  flex: 0 1 40%;
+}
+
+.second-row img {
+  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.7);
+}
+
+.links {
+  margin-top: 3.5em;
+}
+
+.links a {
+  font-family: "Inter", serif;
+  padding: 1em 2em;
+  color: black;
+  border-radius: 0.3em;
+}
+
+.links a:nth-child(1) {
+  background-color: #42aa59;
+}
+
+.links a:nth-child(2) {
+  margin-left: 1em;
+  background-color: #ffffff;
+}
+
+.links a:nth-child(1):hover {
+  background-color: #000000;
+  color: #ffffff;
+}

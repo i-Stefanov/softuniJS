@@ -1,0 +1,190 @@
+@import url(./reset.css);
+@import url(./typography.css);
+
+.container {
+  max-width: 82em;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  display: flex;
+  align-items: baseline;
+  padding-left: 2em;
+  margin: 1em 0;
+}
+
+.heading h3 {
+  border-right: 2px solid #dbdbdb;
+  padding-right: 0.5em;
+}
+
+.heading p {
+  color: #808080;
+  padding: 0;
+  padding-left: 2em;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding-right: 2em;
+}
+
+nav ul {
+  display: flex;
+  padding: 0 1em 0 0;
+  margin: 1em 0;
+  gap: 2px;
+}
+
+nav a {
+  background-color: #ececec;
+  color: black;
+  font-weight: 500;
+  padding: 1.5em 2.5em;
+}
+
+nav a:hover {
+  background-color: #56dbb1;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner {
+  height: 35em;
+  overflow: hidden;
+}
+
+.info {
+  background-color: #56dbb1;
+}
+
+.info p {
+  text-align: center;
+  padding: 3em 0;
+  font-weight: bold;
+}
+
+.features {
+  background-color: #353434;
+}
+
+.features ul {
+  display: flex;
+  padding: 3em 0;
+  gap: 2em;
+}
+
+.features li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features li p {
+  text-align: center;
+}
+
+.features i {
+  font-size: 3em;
+  color: white;
+  padding: 0.5em;
+  background-color: #56dbb1;
+  margin-bottom: 0.5em;
+}
+
+.features li p:nth-child(2) {
+  color: white;
+}
+
+.features li p:nth-child(3) {
+  border-top: 1px solid white;
+  padding-top: 1em;
+  color: #5b5956;
+  font-weight: bold;
+  line-height: 2;
+  /* font-size: 1.2em; */
+}
+
+.with-button .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4em 0;
+}
+
+.with-button h2,
+.with-button p {
+  text-align: center;
+}
+
+.with-button h2 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.with-button p {
+  color: #c3bcb8;
+}
+
+.with-button a {
+  background-color: #974d1b;
+  padding: 1em 2em;
+  color: white;
+  font-weight: 500;
+}
+
+.for-rows {
+  background-color: #353434;
+}
+
+.for-rows .container {
+  display: flex;
+  gap: 2em;
+  padding: 6em 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.for-rows h4 {
+  color: white;
+}
+
+.for-rows p {
+  text-align: center;
+  color: #5b5956;
+  line-height: 1.7;
+}
+
+footer {
+  background-color: #1b9772;
+  display: flex;
+  justify-content: center;
+  padding: 3em 0;
+}
+footer p {
+  font-size: 1.2em;
+  color: white;
+  padding: 0;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+footer span {
+  opacity: 0.6;
+}

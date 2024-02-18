@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap");
+@import url(./reset.css);
+@import url(./typography.css);
+
+html {
+  font-size: 18px;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./images/poster.jpg) no-repeat center / cover;
+  height: 44em;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 4em;
+}
+
+nav ul {
+  display: flex;
+  gap: 2em;
+}
+
+header a {
+  font-family: "Karla", sans-serif;
+  color: white;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.heading h1 {
+  font-size: 6em;
+  font-weight: bold;
+}
+
+.heading p {
+  padding: 0 18em 8em 18em;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: "Karla", sans-serif;
+}
+
+.testimonial {
+  background-color: #f8f0e9;
+  padding: 3em;
+}
+
+.testimonial .container {
+  max-width: 60em;
+  margin: 0 auto;
+}
+
+.testimonial p {
+  font-family: "Karla", sans-serif;
+  font-size: 1.2em;
+}
+
+.testimonial h2 {
+  font-weight: bold;
+  font-size: 4em;
+}
+
+.support {
+  background-color: #e14747;
+  color: white;
+  font-family: "Karla", sans-serif;
+}
+
+.support .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4em;
+  gap: 2em;
+}
+
+.support h4 {
+  font-size: 2.3em;
+  font-weight: bold;
+}
+
+.card {
+  background-color: #f8f0e9;
+}
+
+.card .container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 28em;
+  margin: 0 auto;
+  padding: 4em 0;
+}
+
+.card .description {
+  margin-bottom: 5em;
+}
+
+.card .description h2 {
+  text-align: center;
+  font-size: 3.7em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.5em 0;
+}
+.card .description p {
+  margin-bottom: 3em;
+}
+
+.card a {
+  color: black;
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0.3em;
+}
+
+.outer-link {
+  margin: 0 auto;
+}
+
+.find-guide {
+  background-color: #e14747;
+  color: white;
+}
+
+.find-guide .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5em 0;
+  max-width: 65em;
+  margin: 0 auto;
+}
+
+.find-guide h2 {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.find-guide p {
+  padding: 3em 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+.find-guide a {
+  color: black;
+  padding: 1em 2em;
+  background-color: #fad87a;
+  border-radius: 2em;
+}
+
+footer {
+  background-color: #352b2a;
+  color: white;
+}
+
+footer .container {
+  padding: 3em 2em 3em 7em;
+}
+
+.footer-logo {
+  padding-bottom: 3em;
+}
+
+footer p:first-of-type {
+  padding-bottom: 3em;
+}
+footer p:last-of-type {
+  opacity: 0.3;
+  padding: 0;
+}

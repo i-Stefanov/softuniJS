@@ -1,0 +1,161 @@
+html {
+  font: 12px/1.4 "Poppins", sans-serif;
+}
+
+@media (min-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 900px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1400px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+table,
+input,
+button {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  font-weight: normal;
+  font-family: "Cormorant Infant", serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+h2 {
+  font-size: 2.4em;
+}
+h3 {
+  font-size: 1.8em;
+}
+h4 {
+  font-size: 1.4em;
+}
+h5 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+h6 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+p,
+* + ul,
+* + ol {
+  padding-bottom: 1.5em;
+  font-family: "Karla", sans-serif;
+}
+
+ul,
+ol {
+  padding-left: 1.25em;
+  list-style-position: inside;
+  vertical-align: middle;
+}
+
+li {
+  list-style: none;
+  margin: 0.3125em 0;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Karla", sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th,
+td {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #eaeaea;
+}
+
+blockquote {
+  border-left: 4px solid #cacaca;
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+  font-style: italic;
+  color: #666;
+}
+
+blockquote p:first-child::before,
+blockquote p:nth-last-child(2):not(.author):after {
+  display: inline-block;
+  content: '"';
+}
+
+blockquote p:last-child {
+  padding-bottom: 0;
+}
+
+blockquote p.author {
+  text-align: end;
+  padding-right: 3em;
+}
+
+blockquote p.author::before {
+  display: inline-block;
+  content: "—";
+  padding-right: 0.5em;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

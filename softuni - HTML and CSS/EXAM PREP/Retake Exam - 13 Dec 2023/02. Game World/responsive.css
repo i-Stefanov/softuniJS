@@ -1,0 +1,30 @@
+@media (width <= 600px) {
+  html {
+    font-size: 12px;
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .tm-header {
+    position: relative;
+    padding: 1em;
+  }
+
+  .tm-header-inner {
+    padding: 0;
+  }
+
+  .placeholder {
+    height: 230px;
+  }
+
+  .tm-gallery-page {
+    margin: 0;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
