@@ -1,0 +1,21 @@
+body {
+  width: 980px;
+  margin: auto;
+  font-size: 24px;
+}
+h1 {
+  padding-bottom: 10px;
+  border-bottom: black solid 1px;
+}
+article {
+  margin: 32px 0;
+  padding: 0 17px;
+  box-shadow: 3px 4px 15px 10px rgba(0, 0, 0, 0.2);
+}
+article h3 {
+  padding: 10px 0;
+}
+footer {
+  color: #999999;
+  padding-bottom: 20px;
+}

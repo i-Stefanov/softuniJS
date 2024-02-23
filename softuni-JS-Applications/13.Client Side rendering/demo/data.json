@@ -1,0 +1,17 @@
+[
+  {
+    "title": "First article",
+    "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero architecto, impedit inventore ratione voluptatem mollitia officiis eos nemo consequatur, quibusdam, id illum quae tempore. Aliquidsimilique harum modi voluptatum! Illo praesentium ea hic, aperiam et expedita, inventore culpa ullam tempora error minima!",
+    "author": "Some guy"
+  },
+  {
+    "title": "Second article",
+    "content": "Suscipit aliquid atque quas, iusto ipsam enim incidunt doloremque perspiciatis aliquam? Sed neque atque cupiditate eum! Dolore blanditiis molestiae sint, harum accusantium, asperiores sunt distinctio ullam quisquam nam expedita commodi earum, impedit et obcaecati ea nisi.",
+    "author": "The author"
+  },
+  {
+    "title": "Third article",
+    "content": "At dolor fugiat nulla voluptate saepe quae dicta ea, eum quia quod, ipsam consequatur. Magnam sunt eos commodi nobis beatae velit est?",
+    "author": "Great guy"
+  }
+]
