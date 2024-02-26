@@ -1,0 +1,20 @@
+<p>playground works!</p>
+<!--? use [class.something] = true or false to add/remove class to/from an element dynamically -->
+
+<button [class.blueBg]="isToggled" (click)="handleclick()">Click me</button>
+
+<div [style.color]="isToggled ? 'red' : 'blue'">
+  Change color on click toggle me button
+</div>
+
+<!-- ? #username makes the username input value accessible from the other elements the button for example  -->
+
+<input
+  type="number"
+  placeholder="username"
+  #username
+  (change)="onChange(username.value)"
+/>
+<!-- <button (click)="handleInput(username.value)">Handle input</button> -->
+
+<img [style.width.em]="imgWidth" *ngIf="isToggled" [attr.src]="imgUrl" alt="" />
