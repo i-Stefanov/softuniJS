@@ -6,8 +6,8 @@
 /out-tsc
 /bazel-out
 
-# Environment variables
-
+#Environment
+/environments
 
 
 # Node
