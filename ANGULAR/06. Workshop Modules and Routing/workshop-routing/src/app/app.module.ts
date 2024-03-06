@@ -12,6 +12,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
+import { HomeComponent } from './home/home.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { environment } from 'src/environments/environment.development';
     MainComponent,
     ThemesListComponent,
     PostsListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { environment } from 'src/environments/environment.development';
     AngularFireModule.initializeApp(environment.firebase),
     CoreModule,
     SharedModule,
+    UserModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
