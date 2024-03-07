@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   selector: '[appMyRouterLink]',
 })
 export class MyRouterLinkDirective implements OnInit {
-  @Input() appMyRouterLink: string = ''; // reference to the value assigned to the directive in the html element <span appMyRouterLink="/login">Link to login</span>
+  @Input() appMyRouterLink: string = ''; // (attribute directive) reference to the value assigned to the directive in the html element <span appMyRouterLink="/login">Link to login</span>
   constructor(
     private elRef: ElementRef,
     private renderer: Renderer2,
