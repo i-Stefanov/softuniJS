@@ -1,1 +1,15 @@
-<p>login works!</p>
+<!-- In order for the form to work the FormModule needs to be added to the imports array in the app.module.ts  -->
+<form #loginForm="ngForm" (ngSubmit)="submitHandler(loginForm)">
+  <!-- EMAIL -->
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <!-- ngModel adds the values of the fields to the value property of the form in the ts file of the component -->
+    <input type="text" id="email" name="email" ngModel />
+  </div>
+  <!-- PASSWORD -->
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" ngModel />
+  </div>
+  <button>Login</button>
+</form>
