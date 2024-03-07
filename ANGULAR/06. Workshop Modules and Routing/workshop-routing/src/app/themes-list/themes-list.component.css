@@ -73,3 +73,7 @@ time {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.welcome-comp {
+  margin: 0 2em 2em 2em;
+}

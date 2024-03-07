@@ -1,11 +1,15 @@
 <main>
   <div class="theme-title">
     <app-loader class="main-loader" *ngIf="isLoading" />
+    <div class="welcome-comp">
+      <app-welcome />
+    </div>
+
     <!-- theme component  -->
     <div *ngFor="let theme of themes" class="theme-container">
       <div class="theme-name-wrapper">
         <div class="theme-name">
-          <a href="#" class="normal">
+          <a [routerLink]="theme._id" class="normal">
             <h2>{{ theme.themeName }}</h2>
           </a>
           <div class="columns">
@@ -20,7 +24,7 @@
               </div>
             </div>
             <div class="subscribers">
-              <!-- <button class="subscribe">Subscribe</button> -->
+              <button *ngIf="isLoggedIn" class="subscribe">Subscribe</button>
               <p>
                 Subscribers: <span>{{ theme.subscribers?.length || 0 }}</span>
               </p>

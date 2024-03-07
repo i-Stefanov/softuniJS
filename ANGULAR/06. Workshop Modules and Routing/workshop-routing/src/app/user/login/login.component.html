@@ -13,9 +13,10 @@
           name="email"
           id="email"
           placeholder="john.doe@gmail.com"
+          #inputEmail
         />
       </p>
-      <p class="error">Email is required!</p>
+      <!-- <p class="error">Email is required!</p> -->
       <!-- <p class="error">
                     Email is not valid!
                 </p> -->
@@ -29,6 +30,7 @@
           name="password"
           id="password"
           placeholder="******"
+          #inputPassword
         />
       </p>
       <!-- <p class="error">
@@ -38,11 +40,13 @@
                     Password must be at least 4 characters!
                 </p> -->
 
-      <button disabled>Login</button>
+      <button (click)="login(inputEmail.value, inputPassword.value)">
+        Login
+      </button>
 
       <p class="text-center">
         Have an account?
-        <a href="#">Register</a>
+        <a routerLink="/register">Register</a>
       </p>
     </fieldset>
   </form>

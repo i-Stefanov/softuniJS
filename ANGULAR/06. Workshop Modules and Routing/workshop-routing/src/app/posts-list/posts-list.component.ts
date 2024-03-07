@@ -23,11 +23,10 @@ export class PostsListComponent implements OnInit {
 
     this.api.getPosts(5).subscribe({
       next: (posts) => {
-        setTimeout(() => {
-          this.posts = posts;
-          this.isLoading = false;
-        }, 3000);
-        console.log('all posts  ', posts);
+        // setTimeout(() => {
+        this.posts = posts;
+        this.isLoading = false;
+        // }, 3000);
       },
       error: (err) => {
         console.error('Error ', err);

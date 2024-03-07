@@ -1,11 +1,11 @@
 import { Theme } from './theme';
-import { User } from './user';
+import { UserId } from './userId';
 
 export interface Post {
   likes: string[];
   _id: string;
   text: string;
-  userId: User;
+  userId: UserId;
   themeId: Theme;
   created_at: string;
   updatedAt: string;
