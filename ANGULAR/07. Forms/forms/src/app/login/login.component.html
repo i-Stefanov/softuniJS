@@ -30,7 +30,17 @@
   <!-- PASSWORD -->
   <div class="form-group">
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" ngModel />
+    <input
+      type="password"
+      id="password"
+      name="password"
+      ngModel
+      #passwordInput="ngModel"
+      [appMaxCount]="4"
+    />
+    <div *ngIf="passwordInput.errors?.['appMaxCount']">
+      invalid password {{passwordInput.errors?.['appMaxCount']}}
+    </div>
   </div>
   <button>Login</button>
 </form>

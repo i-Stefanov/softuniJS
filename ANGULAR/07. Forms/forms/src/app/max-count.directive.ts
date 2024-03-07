@@ -18,13 +18,13 @@ export class MaxCountDirective implements Validator {
 
   constructor() {}
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    console.log(control);
+    // control.value is the value in the input
     if (
       this.appMaxCount === undefined ||
       control.value?.length <= this.appMaxCount
     ) {
       return null;
     }
-    return null;
+    return { appMaxCount: this.appMaxCount };
   }
 }
