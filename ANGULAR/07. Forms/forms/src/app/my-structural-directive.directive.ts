@@ -21,7 +21,9 @@ export class MyStructuralDirectiveDirective implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.appMyStructuralDirective) {
       // shows the element if true
-      this.vcRef.createEmbeddedView(this.templateRef);
+      this.vcRef.createEmbeddedView(this.templateRef, {
+        fromDirective: 'value form ngOnChanges 123',
+      });
     } else {
       this.vcRef.clear();
     }
