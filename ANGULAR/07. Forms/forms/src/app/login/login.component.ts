@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
-
+//! TEMPLATE DRIVEN FORM
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

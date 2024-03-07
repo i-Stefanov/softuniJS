@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-// REACTIVE APPROACH FOR FORM BUILDING
+//! REACTIVE APPROACH FOR FORM BUILDING
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
