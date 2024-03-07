@@ -31,9 +31,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AppRoutingModule,
     CoreModule,
     SharedModule,
     UserModule,
