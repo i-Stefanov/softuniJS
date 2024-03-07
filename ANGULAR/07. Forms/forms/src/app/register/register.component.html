@@ -1,1 +1,35 @@
-<p>register works!</p>
+<!-- REACTIVE FORM -->
+<form [formGroup]="registerForm">
+  <!-- EMAIL -->
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" formControlName="email" />
+    <div *ngIf="registerForm.get('email')?.dirty">
+      <div
+        *ngIf="registerForm.get('email')?.errors?.['required']"
+        class="err-msg"
+      >
+        Email is required!
+      </div>
+      <div *ngIf="registerForm.get('email')?.errors?.['email']" class="err-msg">
+        Email must be a valid email!
+      </div>
+    </div>
+  </div>
+  <!-- PASSWORD -->
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      formControlName="password"
+    />
+    <div
+      *ngIf="registerForm.get('password')?.errors?.['maxlength'] || registerForm.get('password')?.errors?.['minlength']"
+    >
+      invalid password
+    </div>
+  </div>
+  <button>Register</button>
+</form>
