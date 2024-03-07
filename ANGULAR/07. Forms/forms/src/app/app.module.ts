@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MyRouterLinkDirective } from './my-router-link.directive';
 import { MyStructuralDirectiveDirective } from './my-structural-directive.directive';
+import { PlaygroundComponent } from './playground/playground.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MyStructuralDirectiveDirective } from './my-structural-directive.direct
     LoginComponent,
     RegisterComponent,
     MyRouterLinkDirective,
-    MyStructuralDirectiveDirective
+    MyStructuralDirectiveDirective,
+    PlaygroundComponent
   ],
   imports: [
     BrowserModule,

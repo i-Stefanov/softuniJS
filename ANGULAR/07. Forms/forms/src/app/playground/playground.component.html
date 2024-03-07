@@ -1,0 +1,40 @@
+<nav>
+  <div appMyRouterLink="/home">Home</div>
+  <div appMyRouterLink="/login">Link to login</div>
+  <div appMyRouterLink="/register">Link to register</div>
+</nav>
+<router-outlet />
+<hr />
+<!-- The * prefix of ngIf (structural directives) is a reference to the ng-template which is built in angular -->
+<div *ngIf="true">Simple div 1</div>
+<hr />
+
+<ng-template [ngIf]="true">
+  <div>Simple div 1.1</div>
+</ng-template>
+
+<!--Case 1 -->
+
+<button (click)="toggle()">toggle my state</button>
+
+<!-- Custom structural directive similar to *ngIf -->
+<div *appMyStructuralDirective="isVisible">Structural directives usage 1</div>
+
+<!--Case 2 -->
+
+<ng-template
+  [appMyStructuralDirective]="isVisible"
+  let-fromDirective="fromDirective"
+>
+  <div>Structural directives Case 2</div>
+  <!-- The value of the fromDirective variable comes from the custom directive where we pass context as a second parameter to the createEmbeddedView method -->
+  <h4>value: {{ fromDirective }}</h4>
+</ng-template>
+
+<!--Case 3 -->
+
+<ng-template #tmp>
+  <div>Structural directives Case 3</div>
+</ng-template>
+
+<ng-container [appMyStructuralDirective]="isVisible" [myTmpProp]="tmp" />
