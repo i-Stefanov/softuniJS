@@ -10,6 +10,7 @@ import { MyRouterLinkDirective } from './my-router-link.directive';
 import { MyStructuralDirectiveDirective } from './my-structural-directive.directive';
 import { PlaygroundComponent } from './playground/playground.component';
 import { FormsModule } from '@angular/forms';
+import { MaxCountDirective } from './max-count.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     MyRouterLinkDirective,
     MyStructuralDirectiveDirective,
     PlaygroundComponent,
+    MaxCountDirective,
   ],
   imports: [
     BrowserModule,
