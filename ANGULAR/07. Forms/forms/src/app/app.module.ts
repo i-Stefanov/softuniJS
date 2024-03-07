@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { MyRouterLinkDirective } from './my-router-link.directive';
 import { MyStructuralDirectiveDirective } from './my-structural-directive.directive';
 import { PlaygroundComponent } from './playground/playground.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,14 @@ import { PlaygroundComponent } from './playground/playground.component';
     RegisterComponent,
     MyRouterLinkDirective,
     MyStructuralDirectiveDirective,
-    PlaygroundComponent
+    PlaygroundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, // template driven form
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
