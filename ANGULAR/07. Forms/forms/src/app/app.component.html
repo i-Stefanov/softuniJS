@@ -20,7 +20,7 @@
 <!-- Custom structural directive similar to *ngIf -->
 <div *appMyStructuralDirective="isVisible">Structural directives usage 1</div>
 
-<!--Case 1 -->
+<!--Case 2 -->
 
 <ng-template
   [appMyStructuralDirective]="isVisible"
@@ -30,3 +30,11 @@
   <!-- The value of the fromDirective variable comes from the custom directive where we pass context as a second parameter to the createEmbeddedView method -->
   <h4>value: {{ fromDirective }}</h4>
 </ng-template>
+
+<!--Case 3 -->
+
+<ng-template #tmp>
+  <div>Structural directives Case 3</div>
+</ng-template>
+
+<ng-container [appMyStructuralDirective]="isVisible" [myTmpProp]="tmp" />
