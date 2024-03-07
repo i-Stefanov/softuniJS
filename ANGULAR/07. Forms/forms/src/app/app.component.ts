@@ -5,9 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  isVisible: boolean = true;
-  toggle(): void {
-    this.isVisible = !this.isVisible;
-  }
-}
+export class AppComponent {}

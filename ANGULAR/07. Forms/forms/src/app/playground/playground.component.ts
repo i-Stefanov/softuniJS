@@ -3,8 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-playground',
   templateUrl: './playground.component.html',
-  styleUrls: ['./playground.component.css']
+  styleUrls: ['./playground.component.css'],
 })
 export class PlaygroundComponent {
-
+  isVisible: boolean = true;
+  toggle(): void {
+    this.isVisible = !this.isVisible;
+  }
 }
