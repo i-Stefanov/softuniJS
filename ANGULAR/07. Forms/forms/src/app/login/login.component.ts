@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+
 //! TEMPLATE DRIVEN FORM
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,9 +25,13 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  copied(): void {
-    console.log('copied');
-  }
+  // copied(): void {
+  //   console.log('copied');
+  // }
+
+  // logChange() {
+  //   console.log(this.emailInputRef?.value);
+  // }
 
   // ngAfterViewInit(): void {
   //will render the final view of the component with the dynamic content

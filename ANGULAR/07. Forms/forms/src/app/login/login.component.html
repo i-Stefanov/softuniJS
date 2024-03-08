@@ -12,12 +12,15 @@
       id="email"
       name="email"
       ngModel
-      (input)="logErrors()"
       required
       email
       #emailInputRef="ngModel"
       [appMaxCount]="4"
     />
+
+    <!-- ? (input)="logChange()" -->
+
+    <!--? (input)="logErrors()" -->
     <!-- check if the email field has some characters in it -->
     <div *ngIf="emailInputRef.dirty">
       <div *ngIf="emailInputRef.errors?.['required']" class="err-msg">
