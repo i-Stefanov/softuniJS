@@ -17,5 +17,7 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
   ngOnInit(): void {}
 
-  handleSubmit(): void {}
+  handleSubmit(): void {
+    console.log(this.registerForm.get('password'));
+  }
 }

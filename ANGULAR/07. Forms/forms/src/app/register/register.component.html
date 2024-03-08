@@ -1,5 +1,5 @@
-<!-- REACTIVE FORM -->
-<form [formGroup]="registerForm">
+<!--! REACTIVE FORM -->
+<form [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
   <!-- EMAIL -->
   <div class="form-group">
     <label for="email">Email:</label>
@@ -25,10 +25,16 @@
       name="password"
       formControlName="password"
     />
-    <div
-      *ngIf="registerForm.get('password')?.errors?.['maxlength'] || registerForm.get('password')?.errors?.['minlength']"
-    >
-      invalid password
+    <div *ngIf="registerForm.get('password')?.errors?.['minlength']">
+      Password must be at least
+      {{registerForm.get('password')?.errors?.['minlength'].requiredLength}}
+      characters long.
+    </div>
+    <div *ngIf="registerForm.get('password')?.errors?.['maxlength']">
+      Password can not be longer than
+      {{registerForm.get('password')?.errors?.['maxlength'].requiredLength}}
+      characters
+      <p>maxlength only for testing purposes</p>
     </div>
   </div>
   <button>Register</button>
