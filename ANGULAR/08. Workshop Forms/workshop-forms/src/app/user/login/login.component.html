@@ -1,3 +1,5 @@
+<!--! TEMPLATE DRIVEN APPROACH OF HANDLING FORMS -->
+
 <div class="container">
   <form class="login" #form="ngForm" (ngSubmit)="login(form)">
     <fieldset>
@@ -19,13 +21,13 @@
           required
           email
         />
-        {{ form.errors | json }}
       </p>
+      <!-- {{ form.errors | json }} -->
       <ng-container *ngIf="inputEmail.touched">
         <p class="error" *ngIf="inputEmail.errors?.['required']">
           Email is required!
         </p>
-        <p class="error" *ngIf="inputEmail.errors?.['email']">
+        <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
           Email is not valid!
         </p>
       </ng-container>
@@ -40,8 +42,8 @@
           placeholder="******"
           #inputPassword="ngModel"
           ngModel
+          required
           minlength="5"
-          (change)="logChange($event)"
         />
       </p>
       <ng-container *ngIf="inputPassword.touched">
@@ -60,5 +62,4 @@
       </p>
     </fieldset>
   </form>
-  {{ form.value | json }}
 </div>
