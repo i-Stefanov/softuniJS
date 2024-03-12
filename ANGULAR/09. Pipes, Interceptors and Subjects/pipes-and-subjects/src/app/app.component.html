@@ -1,0 +1,20 @@
+<h3>Pipes and subjects</h3>
+
+<div>
+  <h1>
+    Sum of list
+    <!-- user.list - the data, reduce - the pipe to be executed on the data, sum - the first argument of the function, 0 the second argument of the function -->
+    {{ user.list | reduce : sum : 0 }}
+  </h1>
+  <button (click)="addProperty()">Add property</button>
+</div>
+
+<div>
+  <h3>From promise: {{ p | async }}</h3>
+  <h3>Clock: {{ time$ | async | date : "HH:mm:ss" }}</h3>
+</div>
+<nav>
+  <div><a routerLink="/">Home</a></div>
+  <div><a routerLink="/lazy">Lazy</a></div>
+</nav>
+<router-outlet />
