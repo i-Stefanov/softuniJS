@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   sum(a: number, b: number): number {
     return a + b;
   }
+
   addProperty(): void {
     (this.user as any)['test123'] = 'test123';
     console.log(this.user);
@@ -27,13 +28,19 @@ export class AppComponent implements OnInit {
 
   constructor(private userService: UsersService) {}
 
+  users$ = this.userService.userObservable$;
+
+  reloadUsers(): void {
+    this.userService.loadUsers();
+  }
+
   ngOnInit(): void {
-    this.userService.loadUsers().subscribe({
-      next: console.log, // similar to try
-      error: (err) => {
-        // similar to  catch
-        console.error(err);
-      },
-    });
+    // this.userService.loadUsers().subscribe({
+    //   next: console.log, // similar to try
+    //   error: (err) => {
+    //     // similar to  catch
+    //     console.error(err);
+    //   },
+    // });
   }
 }

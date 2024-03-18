@@ -13,8 +13,17 @@
   <h3>From promise: {{ p | async }}</h3>
   <h3>Clock: {{ time$ | async | date : "HH:mm:ss" }}</h3>
 </div>
-<nav>
+<!-- <nav>
   <div><a routerLink="/">Home</a></div>
   <div><a routerLink="/lazy">Lazy</a></div>
-</nav>
-<router-outlet />
+</nav> -->
+
+<!-- <router-outlet /> -->
+{{ users$ | async | json }}
+
+<button *ngIf="(users$ | async) === null" (click)="reloadUsers()">
+  Load users
+</button>
+<button *ngIf="(users$ | async) !== null" (click)="reloadUsers()">
+  Reload users
+</button>
