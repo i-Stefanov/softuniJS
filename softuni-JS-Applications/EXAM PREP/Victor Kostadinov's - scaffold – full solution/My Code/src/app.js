@@ -9,11 +9,9 @@ import { catalogPage } from "./views/catalog.js";
 import { createPage } from "./views/create.js";
 
 import { logout } from "./data/auth.js";
-import * as api from "./data/offers.js";
 import { detailsPage } from "./views/details.js";
 import { editPage } from "./views/edit.js";
 
-window.api = api;
 // TODO change root depending on HTML structure
 const root = document.getElementById("wrapper");
 
