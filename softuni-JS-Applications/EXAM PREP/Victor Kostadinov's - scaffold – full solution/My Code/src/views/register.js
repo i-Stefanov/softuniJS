@@ -4,23 +4,42 @@ import { createSubmitHandler } from "../util.js";
 
 // TODO Replace with actual content
 const registerTemplate = (onRegister) => html`
-  <h1>register</h1>
-  <form @submit=${onRegister}>
-    <label for="email">Email:<input type="text" name="email" /></label>
-    <label for="password"
-      >Password:<input type="password" name="password"
-    /></label>
-    <label for="rePassword"
-      >Password:<input type="password" name="rePassword"
-    /></label>
-    <button>Register</button>
-  </form>
+  <section id="register">
+    <div class="form">
+      <h2>Register</h2>
+      <form class="login-form" @submit=${onRegister}>
+        <input
+          type="text"
+          name="email"
+          id="register-email"
+          placeholder="email"
+        />
+        <input
+          type="password"
+          name="password"
+          id="register-password"
+          placeholder="password"
+        />
+        <input
+          type="password"
+          name="re-password"
+          id="repeat-password"
+          placeholder="repeat password"
+        />
+        <button type="submit">register</button>
+        <p class="message">Already registered? <a href="login">Login</a></p>
+      </form>
+    </div>
+  </section>
 `;
 export function registerPage(ctx) {
   ctx.render(registerTemplate(createSubmitHandler(onRegister)));
 
   // TODO Change user object based on requirements
-  async function onRegister({ email, password, rePassword }, form) {
+  async function onRegister(
+    { email, password, "re-password": rePassword },
+    form
+  ) {
     if (email == "" || password == "") {
       return alert("All fields are required");
     }
@@ -30,6 +49,6 @@ export function registerPage(ctx) {
     await register(email, password, rePassword);
     form.reset();
     //todo Use redirect location from requirements
-    ctx.page.redirect("/");
+    ctx.page.redirect("/catalog");
   }
 }
